@@ -7,7 +7,7 @@ from django.shortcuts import render
 # current_speakers
 from django.views.decorators.csrf import csrf_exempt
 
-from speakers.models import SpeakerApplicationData, SpeakerData
+from speakers.models import SpeakerApplicationData
 
 
 @csrf_exempt
@@ -32,7 +32,7 @@ def speaker_application(request):
                                                                 domain=field_of_interest,
                                                                 image=speaker_image,
                                                                 email=speaker_email,
-                                                                phone=speaker_phone,
+                                                                phone_no=speaker_phone,
                                                                 profile=speaker_resume,
                                                                 previous_talk_link=previous_talk_link)
                 #send email for successful application.
