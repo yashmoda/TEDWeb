@@ -11,7 +11,7 @@ def sponsors_application(request):
     try:
         response_Json = {}
         if request.method == 'POST':
-            sponsor_name = request.POST.get('speaker_name')
+            sponsor_name = request.POST.get('sponsor_name')
             sponsor_domain = request.POST.get('sponsor_domain')
             sponsor_image = request.FILES.get('sponsor_image').name
             person_of_contact = request.POST.get('person_of_contact')
