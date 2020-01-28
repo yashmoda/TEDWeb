@@ -1,4 +1,7 @@
 from django.contrib import admin
 
+from sponsors.models import SponsorData, SponsorApplicationData
 
-# Register your models here.
+admin.site.register(SponsorApplicationData)
+admin.site.register(SponsorData)
+

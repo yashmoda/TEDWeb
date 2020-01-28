@@ -8,8 +8,8 @@ from sponsors.models import SponsorApplicationData, SponsorData
 
 @csrf_exempt
 def sponsors_application(request):
+    response_Json = {}
     try:
-        response_Json = {}
         if request.method == 'POST':
             sponsor_name = request.POST.get('sponsor_name')
             sponsor_domain = request.POST.get('sponsor_domain')
@@ -17,16 +17,17 @@ def sponsors_application(request):
             person_of_contact = request.POST.get('person_of_contact')
             sponsor_no = request.POST.get('sponsor_no')
             sponsor_email = request.POST.get('sponsor_email')
-            if SponsorApplicationData.ojects.filter(email = sponsor_email,contactNo = sponsor_no).count()>0:
+            print (sponsor_image)
+            if SponsorApplicationData.objects.filter(email = sponsor_email,contactNo = sponsor_no).count()>0:
 
                 response_Json['success'] = True
                 response_Json['message'] = 'You have already applied. We will get back to you shortly.'
                 return JsonResponse(response_Json)
 
             else:
-                sponsor = SponsorApplicationData.objects.create( name = sponsor_name, domain = sponsor_domain,
-                                                                contactNo = sponsor_no, POC = person_of_contact, email = sponsor_email,
-                                                                logo = sponsor_image)
+                sponsor = SponsorApplicationData.objects.create(name = sponsor_name, domain = sponsor_domain,
+                                                                contactNo = sponsor_no, POC = person_of_contact,
+                                                                email = sponsor_email, logo=sponsor_image)
 
                 #confirmation email code
 
@@ -42,7 +43,6 @@ def sponsors_application(request):
 
 
 def previous_sponsors(request):
-
     response_Json = {'sponsor_details': []}
     if request.method == 'GET':
         try:
