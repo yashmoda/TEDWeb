@@ -3,14 +3,14 @@ from django.db import models
 # Create your models here.
 
 SPONSORS_STATUS = ((1, 'Applied'), (2, 'Reviewing'), (3, 'Accepted'), (4, 'Rejected'))
-
+#data here is the one we store in our database
 class SponsorApplicationData(models.Model):
     name = models.Charfield(max_length = 150)
     domain = models.Charfield(max_length = 150)
     POC = models.Charfield(max_length = 150)
-    ContactNo. = models.Charfield(max_length = 11)
-    Email = models.Charfield(max_length = 100)
-    Logo = models.ImageField()
+    contactNo = models.Charfield(max_length = 11)
+    email = models.Charfield(max_length = 100)
+    logo = models.ImageField()
     status = model.IntegerField(choices = SPONSORS_STATUS)
     created_at =
     updated_at =
