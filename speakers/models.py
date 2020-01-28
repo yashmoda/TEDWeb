@@ -16,7 +16,7 @@ class SpeakerApplicationData(models.Model):
     image = models.ImageField(upload_to='images/speakers/')
     email = models.EmailField()
     phone_no = models.CharField(max_length=10)
-    profile = models.FileField()
+    profile = models.FileField(upload_to='profile/speakers/')
     status = models.IntegerField(choices=SPEAKER_STATUS, default=1)
     previous_talk_link = models.URLField()
     modified = models.DateTimeField(auto_now=True, auto_now_add=False)

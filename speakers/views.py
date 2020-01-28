@@ -1,7 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 
-
 # speaker_application
 # previous_speakers
 # current_speakers
@@ -17,13 +16,15 @@ def speaker_application(request):
         if request.method == 'POST':
             speaker_name = request.POST.get('speaker_name')
             field_of_interest = request.POST.get('field_of_interest')
-            speaker_image = request.FILES.get('speaker_image').name
+            speaker_image = request.FILES.get('speaker_image')
             speaker_email = request.POST.get('speaker_email')
             speaker_phone = request.POST.get('speaker_phone')
-            speaker_resume = request.FILES.get('speaker_resume').name
+            speaker_resume = request.FILES.get('speaker_resume')
             previous_talk_link = request.POST.get('previous_talk_link')
+            print(speaker_image)
+            print(speaker_resume)
             if SpeakerApplicationData.objects.filter(email=speaker_email,
-                                                     phone_no=speaker_phone).count()>0:
+                                                     phone_no=speaker_phone).count() > 0:
                 response_json['success'] = True
                 response_json['message'] = "You have already applied. We will get back to you shortly."
                 return JsonResponse(response_json)
@@ -35,7 +36,7 @@ def speaker_application(request):
                                                                 phone_no=speaker_phone,
                                                                 profile=speaker_resume,
                                                                 previous_talk_link=previous_talk_link)
-                #send email for successful application.
+                # send email for successful application.
                 response_json['success'] = True
                 response_json['message'] = "You will soon receive an email confirming your application."
                 return JsonResponse(response_json)
@@ -50,11 +51,12 @@ def previous_speakers(request):
     response_json = {'speaker_details': []}
     if request.method == 'GET':
         try:
-            previous_speaker_list = SpeakerData.objects.filter(status=5)
+            previous_speaker_list = SpeakerApplicationData.objects.filter(status=5)
             for previous_speaker in previous_speaker_list:
                 temp_json = {'name': previous_speaker.name,
                              'domain': previous_speaker.domain,
-                             'image': previous_speaker.image,
+                             'image': request.scheme + '://' + request.get_host() +
+                                      '/media/' + str(previous_speaker.image),
                              'id': previous_speaker.id}
                 response_json['speaker_details'].append(temp_json)
             response_json['success'] = True
@@ -71,11 +73,12 @@ def current_speakers(request):
     response_json = {'speaker_details': []}
     if request.method == 'GET':
         try:
-            current_speaker_list = SpeakerData.objects.filter(status=6)
+            current_speaker_list = SpeakerApplicationData.objects.filter(status=6)
             for current_speaker in current_speaker_list:
                 temp_json = {'name': current_speaker.name,
                              'domain': current_speaker.domain,
-                             'image': current_speaker.image,
+                             'image': request.scheme + '://' + request.get_host() +
+                                      '/media/' + str(current_speaker.image),
                              'id': current_speaker.id}
                 response_json['speaker_details'].append(temp_json)
             response_json['success'] = True
@@ -93,7 +96,7 @@ def speaker_details(request):
     if request.method == 'GET':
         try:
             speaker_id = request.GET.get('speaker_id')
-            speaker_data = SpeakerData.objects.get(id=speaker_id)
+            speaker_data = SpeakerApplicationData.objects.get(id=speaker_id)
             response_json['speaker_name'] = speaker_data.name
             response_json['speaker_domain'] = speaker_data.domain
             response_json['speaker_description'] = speaker_data.description
