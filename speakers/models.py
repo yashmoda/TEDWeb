@@ -18,6 +18,7 @@ class SpeakerApplicationData(models.Model):
     phone_no = models.CharField(max_length=10)
     profile = models.FileField()
     status = models.IntegerField(choices=SPEAKER_STATUS)
+    previous_talk_link = models.URLField()
     modified = models.DateTimeField(auto_now=True, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 

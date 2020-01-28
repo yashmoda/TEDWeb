@@ -21,6 +21,7 @@ def speaker_application(request):
             speaker_email = request.POST.get('speaker_email')
             speaker_phone = request.POST.get('speaker_phone')
             speaker_resume = request.FILES.get('speaker_resume').name
+            previous_talk_link = request.POST.get('previous_talk_link')
             if SpeakerApplicationData.objects.filter(email=speaker_email,
                                                      phone_no=speaker_phone).count()>0:
                 response_json['success'] = True
@@ -32,7 +33,8 @@ def speaker_application(request):
                                                                 image=speaker_image,
                                                                 email=speaker_email,
                                                                 phone=speaker_phone,
-                                                                profile=speaker_resume)
+                                                                profile=speaker_resume,
+                                                                previous_talk_link=previous_talk_link)
                 #send email for successful application.
                 response_json['success'] = True
                 response_json['message'] = "You will soon receive an email confirming your application."
@@ -95,6 +97,7 @@ def speaker_details(request):
             response_json['speaker_name'] = speaker_data.name
             response_json['speaker_domain'] = speaker_data.domain
             response_json['speaker_description'] = speaker_data.description
+            response_json['previous_talk_link'] = speaker_data.previous_talk_link
             response_json['success'] = True
             response_json['message'] = "All the speaker information has been shown."
             return JsonResponse(response_json)
