@@ -59,3 +59,24 @@ function myFunction() {
   }
   document.getElementById("demo").innerHTML = text;
 }
+
+function submit_spons_application()
+{
+  $.ajax({
+    url: "/sponsors/sponsor_application/",
+    type: "POST",
+    dataType: "json",
+    data: {"sponsor_name": $("#sponsorname").val(), "sponsor_domain": $("#InputPassword").val(), "person_of_contact": $("#pointofcontact").val(), "sponsor_no": $("#mobilenumber").val(), "sponsor_email": $("#InputEmail").val()},
+    success: function(data) {
+      if(data.success == true)
+      {
+        $("#sponsorname").val('');
+        $("#InputPassword").val('');
+        $("#pointofcontact").val('');
+        $("#mobilenumber").val('');
+        $("#InputEmail").val('');
+        console.log("successful.")
+      }
+    }
+  })
+}
