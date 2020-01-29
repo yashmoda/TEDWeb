@@ -1,0 +1,73 @@
+.web-team {
+  height: 600px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.web-team .title {
+  height: 200px;
+}
+
+figure {
+  margin: 5%;
+  font-family: Roboto,sans-serif;
+}
+
+.img-cover {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.img-slide {
+  height: 400px;
+  float: left;
+  width: 90%;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.img-slide .img-layer {
+  height: 100%;
+  z-index: 100;
+  position: relative;
+  color: white;
+}
+
+.img-slide .img-layer .img-des {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+}
+
+.img-slide .img-layer .img-des .img-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: inherit;
+  text-align: center;
+  font-family: inherit;
+  bottom: 0;
+}
+
+.img-slide .img-layer .img-des .img-content {
+  bottom: 0;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.img-slide .img-layer .img-des .img-content .img-text {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  overflow: hidden;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.img-slide .img-layer:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+/*# sourceMappingURL=team.css.map */
