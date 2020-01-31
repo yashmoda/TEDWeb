@@ -1,0 +1,20 @@
+.mydivs{
+    border:5px solid blue;
+    margin:8px;
+    padding:10px;
+
+}
+div p{
+   /* color:red;*/
+    color:darkcyan;
+}/*paragraph inside division*/
+
+.mycube{
+    width:50px;
+    height:50px;
+    background-color:blue;
+    opacity:0.4;
+    position: absolute;
+    padding:20px;
+    margin-left:130px;
+}
