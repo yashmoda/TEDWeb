@@ -1,0 +1,452 @@
+body {
+  background-color: #f0e8e8;
+  margin: unset;
+  border: unset;
+  padding: unset;
+}
+
+.mid {
+  height: auto;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 100px;
+  text-align: center;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  overflow: hidden;
+}
+
+.mid .pic-bg {
+  position: relative;
+  display: inline-block;
+  float: left;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.mid .pic-bg .pic-cover {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  background-color: white;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.mid .pic-bg .pic-cover .pic-img {
+  background-image: url("../images/Raj-Shamani.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.mid .pic-bg .pic-cover .pic-des {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mid .pic-bg .pic-cover .pic-des .card-text {
+  font-family: sans-serif;
+  font-size: 15px;
+  height: auto;
+  display: none;
+}
+
+.mid .pic-bg .pic-cover .pic-des .card-temp {
+  height: auto;
+}
+
+.norm {
+  width: 25%;
+  height: 25vw;
+}
+
+.norm .pic-cover {
+  height: 70%;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.norm .pic-cover .pic-img {
+  height: 70%;
+}
+
+.norm .pic-cover .pic-des {
+  height: 24%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+
+.norm .pic-cover .pic-des .card-title {
+  height: 100%;
+}
+
+.norm .pic-cover .pic-des .card-text {
+  height: 0%;
+  overflow: hidden;
+}
+
+.large {
+  height: 40vw;
+  width: 40%;
+}
+
+.large .pic-cover {
+  height: 70%;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.large .pic-cover .pic-img {
+  height: 60%;
+}
+
+.large .pic-cover .pic-des {
+  height: 34%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.large .pic-cover .pic-des .card-title {
+  height: auto;
+}
+
+.large .pic-cover .pic-des .card-text {
+  height: auto;
+  overflow: hidden;
+}
+
+.small {
+  height: 40vw;
+  width: 20%;
+}
+
+.small .pic-cover {
+  height: 30%;
+  margin-top: 85%;
+  margin-bottom: 85%;
+}
+
+.small .pic-cover .pic-img {
+  height: 70%;
+}
+
+.small .pic-cover .pic-des {
+  height: 24%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+
+.small .pic-cover .pic-des .card-title {
+  height: 100%;
+}
+
+.small .pic-cover .pic-des .card-text {
+  height: 0%;
+  padding-bottom: 5%;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  .mid {
+    height: auto;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 100px;
+  }
+  .mid .pic-bg {
+    float: none;
+  }
+  .norm {
+    width: 80%;
+    height: 80vw;
+  }
+  .norm .pic-cover {
+    height: 80%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  .norm .pic-cover .pic-img {
+    height: 75%;
+  }
+  .norm .pic-cover .pic-des {
+    height: 19%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  .norm .pic-cover .pic-des .card-title {
+    height: 100%;
+  }
+  .norm .pic-cover .pic-des .card-text {
+    height: 0%;
+    overflow: hidden;
+  }
+  .large {
+    height: 100vw;
+    width: 100%;
+  }
+  .large .pic-cover {
+    height: 90%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .large .pic-cover .pic-img {
+    height: 60%;
+  }
+  .large .pic-cover .pic-des {
+    height: 34%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  .large .pic-cover .pic-des .card-title {
+    height: auto;
+  }
+  .large .pic-cover .pic-des .card-text {
+    height: auto;
+    overflow: hidden;
+  }
+  .small {
+    width: 80%;
+    height: 80vw;
+  }
+  .small .pic-cover {
+    height: 60%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+  .small .pic-cover .pic-img {
+    height: 70%;
+  }
+  .small .pic-cover .pic-des {
+    height: 24%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  .small .pic-cover .pic-des .card-title {
+    height: 100%;
+  }
+  .small .pic-cover .pic-des .card-text {
+    height: 0%;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 601px) {
+  .mid {
+    height: auto;
+    width: 100%;
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 100px;
+  }
+  .norm {
+    width: 50%;
+    height: 50vw;
+  }
+  .norm .pic-cover {
+    height: 60%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+  .norm .pic-cover .pic-img {
+    height: 70%;
+  }
+  .norm .pic-cover .pic-des {
+    height: 24%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  .norm .pic-cover .pic-des .card-title {
+    height: 100%;
+  }
+  .norm .pic-cover .pic-des .card-text {
+    height: 0%;
+    overflow: hidden;
+  }
+  .large {
+    height: 70vw;
+    width: 70%;
+  }
+  .large .pic-cover {
+    height: 60%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+  .large .pic-cover .pic-img {
+    height: 55%;
+  }
+  .large .pic-cover .pic-des {
+    height: 45%;
+  }
+  .large .pic-cover .pic-des .card-title {
+    height: auto;
+  }
+  .large .pic-cover .pic-des .card-text {
+    height: auto;
+    overflow: hidden;
+  }
+  .small {
+    width: 30%;
+    height: 70vw;
+  }
+  .small .pic-cover {
+    height: 30%;
+    margin-top: 85%;
+    margin-bottom: 85%;
+  }
+  .small .pic-cover .pic-img {
+    height: 70%;
+  }
+  .small .pic-cover .pic-des {
+    height: 24%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  .small .pic-cover .pic-des .card-title {
+    height: 100%;
+  }
+  .small .pic-cover .pic-des .card-text {
+    height: 0%;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+  .mid {
+    height: auto;
+    width: 100%;
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 100px;
+  }
+  .norm {
+    width: 33.3333%;
+    height: 33.33333vw;
+  }
+  .norm .pic-cover {
+    height: 60%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+  .norm .pic-cover .pic-img {
+    height: 70%;
+  }
+  .norm .pic-cover .pic-des {
+    height: 24%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  .norm .pic-cover .pic-des .card-title {
+    height: 100%;
+  }
+  .norm .pic-cover .pic-des .card-text {
+    height: 0%;
+    overflow: hidden;
+  }
+  .large {
+    height: 60vw;
+    width: 50%;
+  }
+  .large .pic-cover {
+    height: 60%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+  .large .pic-cover .pic-img {
+    height: 55%;
+  }
+  .large .pic-cover .pic-des {
+    height: 45%;
+  }
+  .large .pic-cover .pic-des .card-title {
+    height: auto;
+  }
+  .large .pic-cover .pic-des .card-text {
+    height: auto;
+    overflow: hidden;
+  }
+  .small {
+    width: 25%;
+    height: 60vw;
+  }
+  .small .pic-cover {
+    height: 25%;
+    margin-top: 94%;
+    margin-bottom: 94%;
+  }
+  .small .pic-cover .pic-img {
+    height: 70%;  
+  }
+  .small .pic-cover .pic-des {
+    height: 24%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  .small .pic-cover .pic-des .card-title {
+    height: 100%;
+  }
+  .small .pic-cover .pic-des .card-text {
+    height: 0%;
+    overflow: hidden;
+  }
+}
+
+/* Modal CSS*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  height: 650px;
+  border: 1px solid #888;
+  width: 550px;
+}
+.modal-form{
+  position: absolute;
+  height: 90%;
+  width: 510px;
+}
+
+/*Apply Button*/
+.apply{
+  text-align: center;
+}
+.apply-button{
+  display: inline-block;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  position: relative;
+  right: 0px;
+  width: 28px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*# sourceMappingURL=speaker.css.map */
