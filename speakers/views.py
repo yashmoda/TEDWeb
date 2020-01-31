@@ -8,6 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 from speakers.models import SpeakerApplicationData
 
+def show_speaker_page(request):
+    return render(request, 'speaker.html')
+
 
 @csrf_exempt
 def speaker_application(request):
@@ -57,7 +60,9 @@ def previous_speakers(request):
                              'domain': previous_speaker.domain,
                              'image': request.scheme + '://' + request.get_host() +
                                       '/media/' + str(previous_speaker.image),
-                             'id': previous_speaker.id}
+                             'id': previous_speaker.id,
+                             'description': previous_speaker.description,
+                             'previous_talk_link': previous_speaker.previous_talk_link}
                 response_json['speaker_details'].append(temp_json)
             response_json['success'] = True
             response_json['message'] = "The list of previous speakers has been successfully shown."
