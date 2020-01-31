@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/Home Page.CSS" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script src="{% static "js/HomePage.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+     <!-- <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script> -->
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <title>HomePage</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bgd navbar-dark">
+       <div class="container">
+        <a class="navbar-brand" href="#"><img src="" height="50x" width="40px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="team.html">Our Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Previous Speakers</a>
+              </li>
+              
+          </ul>
+        </div>
+       </div>
+      </nav>
+      
+      <div class="bgimg">
+        <div class="middle">
+          <h1>COMING SOON</h1>
+          <hr>
+          <p id="demo" class="clk"></p>
+        </div>
+        <div class="bottomleft">
+          <p>The Extravaganza of Wizards</p>
+        </div>
+      </div>
+
+      <div class="tab" id="about">
+        <button class="tablinks" onclick="openCity(event, 'London')">TED</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">TED<sup>x</sup></button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">TED<sup>x</sup>NITRaipur.</button>
+      </div>
+      
+      <div id="London" class="tabcontent">
+        <p>TEDxNITRaipur is a full day conference scheduled in the first week of march 2020, with around 6 live speakers ;curated from the thoughts leaders across the country and aboard also, as well as grassroots speakers sharing their inspiring stories of their personal achievement . It is an initiative by the students of NIT Raipur to bring up a great set of visionaries on a single stage. We aim to bring innovative minds of society and provide inspiration to the people of Raipur and beyond.
+        </p>
+      </div>
+      
+      <div id="Paris" class="tabcontent">
+         <p>TEDxNITRaipur is a full day conference scheduled in the first week of march 2020, with around 6 live speakers ;curated from the thoughts leaders across the country and aboard also, as well as grassroots speakers sharing their inspiring stories of their personal achievement . It is an initiative by the students of NIT Raipur to bring up a great set of visionaries on a single stage. We aim to bring innovative minds of society and provide inspiration to the people of Raipur and beyond.</p>
+      </div>
+      
+      <div id="Tokyo" class="tabcontent">
+        <p>TEDxNITRaipur is a full day conference scheduled in the first week of march 2020, with around 6 live speakers ;curated from the thoughts leaders across the country and aboard also, as well as grassroots speakers sharing their inspiring stories of their personal achievement . It is an initiative by the students of NIT Raipur to bring up a great set of visionaries on a single stage. We aim to bring innovative minds of society and provide inspiration to the people of Raipur and beyond.</p>
+      </div>
+      
+       
+      <div class="container">
+        <h2 style="text-align: center; padding-top: 5px;">Why partner with TED<sup>x</sup> NIT Raipur?</h2>
+        <hr style="border: 2px solid black;">
+        <div class="row">
+          <div class="col-sm-12 pt">
+            <div style="font-size: 60px;"><i class="fa fa-link circle-icon" aria-hidden="true"></i></div>
+            <h5>Why TED<sup>x</sup>NITRaipur?</h5>
+            <p>
+              We realize that your brand and money is valuable and we want to ensure that you get value for your contribution. We will provide a platform for you to showcase your ideas and design in front of exceptional individuals from various fields such as Technology, Entertainment, Academics and similar enthusiastic students and people from all.
+            </p>
+          </div>
+          <div class="col-sm-12 pt">
+            <div style="font-size: 60px;"><i class="fa fa-bar-chart circle-icon" aria-hidden="true"></i></i></div>
+            <h5>Why TED<sup>x</sup>NITRaipur?</h5>
+            <p>
+              We realize that your brand and money is valuable and we want to ensure that you get value for your contribution. We will provide a platform for you to showcase your ideas and design in front of exceptional individuals from various fields such as Technology, Entertainment, Academics and similar enthusiastic students and people from all.
+            </p>
+          </div>
+          <div class="col-sm-12 pt">
+            <div style="font-size:60px;"><i class="fa fa-usd circle-icon" aria-hidden="true"></i></div>
+            <h5>Why TED<sup>x</sup>NITRaipur?</h5>
+            <p>
+              We realize that your brand and money is valuable and we want to ensure that you get value for your contribution. We will provide a platform for you to showcase your ideas and design in front of exceptional individuals from various fields such as Technology, Entertainment, Academics and similar enthusiastic students and people from all.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container text-center">
+      <button type="button" class="btn btnpop" data-toggle="modal" data-target="#exampleModalCenter">
+        Apply to US
+      </button>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Partner With TED<sup>x</sup>NITRaipur</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Company/Start-Up Name</label>
+                  <input type="text" class="form-control" id="sponsorname" placeholder="e.g. abc associates">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Company Domain</label>
+                  <input type="email" class="form-control" id="InputPassword" placeholder="Food etc.">
+                  <div class="form-group">
+                    <label for="Offer">Person of Contact</label>
+                    <input type="text" class="form-control" id="pointofcontact" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Sponsor Number</label>
+                    <input type="text" class="form-control" id="mobilenumber" placeholder="1234567890">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Sponsor E-Mail Address</label>
+                    <input type="text" class="form-control" id="InputEmail" placeholder="abc@example.com">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btnpop" onclick="submit_spons_application()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="foter">
+        
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              
+          <div class="foter-section about " >
+            
+              <h2>Quick Links</h2>
+              <a href="#" style="color: white;"><li>TED</li></a>
+              <a href="#" style="color: white;"><li>TED<sup>x</sup></li></a>
+              <a href="#" style="color: white;"><li>NIT Raipur</li></a>
+          </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">   
+          <div class="foter-section link" >
+            <h2>Catch Us At</h2>
+            <div class="contact">
+              <span><i class="fa fa-phone">&nbsp; 123-456-789</i></span>
+              <span><i class="fa fa-envelope-o">&nbsp; tedxnitraipur.nitrr.ac.in</i></span>
+            </div>
+            <div class="social">
+              <a href="#"><i class="fa fa-facebook-official" ></i></a>
+              <a href="#"><i class="fa fa-instagram" ></i></a>
+              <a href="#"><i class="fa fa-linkedin" ></i></a>
+            </div>
+           
+          </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+          <div class="foter-section map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.271576253507!2d81.603183737625!3d21.24995717107707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dde213f66723%3A0x21543965c50c43c7!2sNational%20Institute%20of%20Technology%2C%20Raipur!5e0!3m2!1sen!2sin!4v1578681614746!5m2!1sen!2sin" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+            </div>
+        <div class="foter-bottom">
+         &copy; TED<sup>x</sup>NITRaipur| Designed and maintained by Shashwat Awasthi
+         </div>
+        </div>
+        <a href="#" class="floating-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-question" aria-hidden="true"></i></a>
+        
+     
+</body>
+</html>

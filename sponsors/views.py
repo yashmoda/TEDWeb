@@ -6,6 +6,9 @@ from django.views.decorators.csrf import csrf_exempt
 from sponsors.models import SponsorApplicationData, SponsorData
 
 
+def show_home(request):
+    return render(request, 'HomePage.html')
+
 @csrf_exempt
 def sponsors_application(request):
     response_Json = {}
