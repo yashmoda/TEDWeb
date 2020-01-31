@@ -85,3 +85,22 @@ function speakers()
 {
     
 }
+
+function submit_contact_application()
+{
+    $.ajax({
+    url: "/contact/contact_us/",
+    type: "POST",
+    dataType: "json",
+    data: {"name": $("#name").val(), "query": $("#query").val(), "phone_no": $("#phone_no").val()},
+    success: function(data) {
+      if(data.success == true)
+      {
+        $("#name").val('');
+        $("#query").val('');
+        $("#phone_no").val('');
+        console.log("successful.");
+      }
+    }
+  });
+}
