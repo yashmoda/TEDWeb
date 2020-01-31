@@ -80,3 +80,8 @@ function submit_spons_application()
     }
   })
 }
+
+function speakers()
+{
+    
+}

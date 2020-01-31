@@ -1,133 +1,151 @@
 var myApp = angular.module('qbApp', []);
-myApp.controller('qbCtrl', function($scope,$interval,qbBasics) {
-    var picCoverEles=document.querySelectorAll(".pic-cover");
-    
-    var openTextDesFun=function(picCover){
-        window.setTimeout(function(){
-            if(angular.element(picCover).parent().hasClass("large"))
-                angular.element(picCover.querySelector(".card-text")).css("display","block");
-        },500)
-    }
-    
-    var closeTextDesFun=function(picCover){
-        angular.element(picCover.querySelector(".card-text")).css("display","none");
-    }
-
-    angular.forEach(picCoverEles,function(picCoverEle,key){
-		angular.element(picCoverEle).attr("speaker-id",key);
-		angular.element(picCoverEle).bind("mouseenter",function(event){
-			if(window.innerWidth>600)
-			{
-				var speakerId=qbBasics.findParentByClassName(event.target,"pic-cover").attr("speaker-id");
-				var alignId=qbBasics.findParentByClassName(event.target,"pic-bg").attr("align-id");
-				angular.forEach(picCoverEles,function(picCover,keyNum){
-					if(alignId==angular.element(picCover).parent().attr("align-id"))
-					{
-						angular.element(picCover).parent().removeClass("norm");
-						if(keyNum==speakerId)
-						{
-							angular.element(picCover).parent().addClass("large");
-                            angular.element(picCover).parent().removeClass("small");
-                            openTextDesFun(picCover);
-						}
-						else
-						{
-							angular.element(picCover).parent().removeClass("large");
-							angular.element(picCover).parent().addClass("small");
-						}
-					}
-				})
-            }
-		});
-
-		angular.element(picCoverEle).bind("mouseleave",function(event){
-			if(window.innerWidth>600)
-			{
-				var speakerId=qbBasics.findParentByClassName(event.target,"pic-cover").attr("speaker-id");
-				angular.forEach(picCoverEles,function(picCover,keyNum){
-                    closeTextDesFun(picCover)
-					angular.element(picCover).parent().addClass("norm");
-					angular.element(picCover).parent().removeClass("large");
-					angular.element(picCover).parent().removeClass("small");
-				})
-			}
+myApp.controller('qbCtrl', function($scope,$interval,qbBasics,$http,$compile) {
+     var picCoverEles;
+    $http.get("/speaker/previous_speakers").then(function(data){
+        angular.forEach(data.data.speaker_details,function(speaker_details,key){
+            var picCover=$compile(angular.element("<div class=\"pic-bg norm\">    <div class=\"pic-cover\">   <div class=\"pic-img\" style=\"background-image:url('"+speaker_details.image+"')\"> </div>  <div class=\"pic-des\">  <div class=\"card-title\"> "+speaker_details.name+"</div> <div class=\"card-text\"> "+speaker_details.description+"  <br> <a href=\""+speaker_details.previous_talk_link+"\"> See Her TedX Talk</a> </div>    </div>    </div>    </div>"))($scope);
+            angular.element(document.querySelector("#speaker_details")).append(picCover);
         });
-        
-        closeTextDesFun(picCoverEle);
-	});
 
-	angular.element(window).bind("scroll",function(event){
-		if(window.innerWidth<600)
-		{
-			var activeKey=0;
-			angular.forEach(picCoverEles,function(picCover,key){
-				if((picCover.getBoundingClientRect().top+picCover.getBoundingClientRect().height)<window.innerHeight*0.9)
-				{
-					activeKey=key;
-				}
-
-			});
-
-			angular.forEach(picCoverEles,function(picCover,picCoverKey){
-				if(picCoverKey==activeKey)
-				{
-					angular.element(picCover).parent().addClass("large");
-                    angular.element(picCover).parent().removeClass("norm");
-                    openTextDesFun(picCover);
-				}
-				else
-				{
-					angular.element(picCover).parent().addClass("norm");
-                    angular.element(picCover).parent().removeClass("large");
-                    closeTextDesFun(picCover);
-				}
-			});
-		}
-	});
-
-
-	angular.element(window).bind("resize",function(){
-		qbAlignIdSetFun();
-	});
-	var qbAlignIdSetFun=function(){
-		var offSetTop=angular.element(picCoverEles[0]).parent()[0].offsetTop;
-		var alignId=0;
-		angular.forEach(picCoverEles,function(picCover,key){
-			if(angular.element(picCover).parent()[0].offsetTop==offSetTop)
-			{
-				angular.element(picCover).parent().attr("align-id",alignId);
-			}
-			else
-			{
-				offSetTop=angular.element(picCover).parent()[0].offsetTop;
-				alignId++;	
-				angular.element(picCover).parent().attr("align-id",alignId);
-			}
-		});
-	}
-
-	angular.element(document).ready(function(){
-		qbAlignIdSetFun();
+        picCoverEles=document.querySelectorAll(".pic-cover");
+        picCoverElesLoadFun();
     });
+        var openTextDesFun=function(picCover){
+                window.setTimeout(function(){
+                    if(angular.element(picCover).parent().hasClass("large"))
+                        angular.element(picCover.querySelector(".card-text")).css("display","block");
+                },500)
+            }
 
-    var applyForm=angular.element(document.querySelector("#applyForm"));
-   
-    var setModalFormPaddingFun=function(){
-        var qbTop=(parseFloat(window.getComputedStyle(applyForm[0], null).getPropertyValue('height'))-parseFloat(window.getComputedStyle(applyForm.children()[0], null).getPropertyValue('height')))/2;
-        applyForm.attr("qb-top",qbTop);
-        var qbLeft=(parseFloat(window.getComputedStyle(applyForm[0], null).getPropertyValue('width'))-parseFloat(window.getComputedStyle(applyForm.children()[0], null).getPropertyValue('width')))/2;
-        applyForm.attr("qb-left",qbLeft);
-    }
+            var closeTextDesFun=function(picCover){
+                angular.element(picCover.querySelector(".card-text")).css("display","none");
+            }
 
-    setModalFormPaddingFun();
+            var picCoverElesLoadFun=function(){
 
-    $scope.modalOpenFun=function(){
-        applyForm.css("display","block");
-    }
-    
-    $scope.modalCloseFun=function(){
-        applyForm.css("display","none");
-    }
+                angular.forEach(picCoverEles,function(picCoverEle,key){
+                angular.element(picCoverEle).attr("speaker-id",key);
+                angular.element(picCoverEle).bind("mouseenter",function(event){
+                    if(window.innerWidth>600)
+                    {
+                        var speakerId=qbBasics.findParentByClassName(event.target,"pic-cover").attr("speaker-id");
+                        var alignId=qbBasics.findParentByClassName(event.target,"pic-bg").attr("align-id");
+                        angular.forEach(picCoverEles,function(picCover,keyNum){
+                            if(alignId==angular.element(picCover).parent().attr("align-id"))
+                            {
+                                angular.element(picCover).parent().removeClass("norm");
+                                if(keyNum==speakerId)
+                                {
+                                    angular.element(picCover).parent().addClass("large");
+                                    angular.element(picCover).parent().removeClass("small");
+                                    openTextDesFun(picCover);
+                                }
+                                else
+                                {
+                                    angular.element(picCover).parent().removeClass("large");
+                                    angular.element(picCover).parent().addClass("small");
+                                }
+                            }
+                        })
+                    }
+                });
+
+                angular.element(picCoverEle).bind("mouseleave",function(event){
+                    if(window.innerWidth>600)
+                    {
+                        var speakerId=qbBasics.findParentByClassName(event.target,"pic-cover").attr("speaker-id");
+                        angular.forEach(picCoverEles,function(picCover,keyNum){
+                            closeTextDesFun(picCover)
+                            angular.element(picCover).parent().addClass("norm");
+                            angular.element(picCover).parent().removeClass("large");
+                            angular.element(picCover).parent().removeClass("small");
+                        })
+                    }
+                });
+
+                angular.element(picCoverEle).bind("click",function(event){
+                    console.log(event);
+                })
+
+                closeTextDesFun(picCoverEle);
+            });
+            }
+
+            angular.element(window).bind("scroll",function(event){
+                if(window.innerWidth<600)
+                {
+                    var activeKey=0;
+                    angular.forEach(picCoverEles,function(picCover,key){
+                        if((picCover.getBoundingClientRect().top+picCover.getBoundingClientRect().height)<window.innerHeight*0.9)
+                        {
+                            activeKey=key;
+                        }
+
+                    });
+
+                    angular.forEach(picCoverEles,function(picCover,picCoverKey){
+                        if(picCoverKey==activeKey)
+                        {
+                            angular.element(picCover).parent().addClass("large");
+                            angular.element(picCover).parent().removeClass("norm");
+                            openTextDesFun(picCover);
+                        }
+                        else
+                        {
+                            angular.element(picCover).parent().addClass("norm");
+                            angular.element(picCover).parent().removeClass("large");
+                            closeTextDesFun(picCover);
+                        }
+                    });
+                }
+            });
+
+
+            angular.element(window).bind("resize",function(){
+                qbAlignIdSetFun();
+            });
+            var qbAlignIdSetFun=function(){
+
+                var offSetTop=angular.element(picCoverEles[0]).parent()[0].offsetTop;
+                var alignId=0;
+                angular.forEach(picCoverEles,function(picCover,key){
+                    if(angular.element(picCover).parent()[0].offsetTop==offSetTop)
+                    {
+                        angular.element(picCover).parent().attr("align-id",alignId);
+                    }
+                    else
+                    {
+                        offSetTop=angular.element(picCover).parent()[0].offsetTop;
+                        alignId++;
+                        angular.element(picCover).parent().attr("align-id",alignId);
+                    }
+                });
+            }
+
+            angular.element(document).ready(function(){
+                qbAlignIdSetFun();
+            });
+
+            var applyForm=angular.element(document.querySelector("#applyForm"));
+
+            var setModalFormPaddingFun=function(){
+                var qbTop=(parseFloat(window.getComputedStyle(applyForm[0], null).getPropertyValue('height'))-parseFloat(window.getComputedStyle(applyForm.children()[0], null).getPropertyValue('height')))/2;
+                applyForm.attr("qb-top",qbTop);
+                var qbLeft=(parseFloat(window.getComputedStyle(applyForm[0], null).getPropertyValue('width'))-parseFloat(window.getComputedStyle(applyForm.children()[0], null).getPropertyValue('width')))/2;
+                applyForm.attr("qb-left",qbLeft);
+            }
+
+            setModalFormPaddingFun();
+
+            $scope.modalOpenFun=function(){
+                applyForm.css("display","block");
+            }
+
+            $scope.modalCloseFun=function(){
+                applyForm.css("display","none");
+            }
+
+
 
 });
 myApp.service('qbBasics',qbBasics);
@@ -218,7 +236,7 @@ function qbBasics($compile)
                 }
                 else
                 {
-                    child=child.children();    
+                    child=child.children();
                 }
             }
             else
@@ -254,7 +272,7 @@ function qbBasics($compile)
                 }
                 else
                 {
-                    child=child.children();    
+                    child=child.children();
                 }
             }
             else
@@ -265,7 +283,7 @@ function qbBasics($compile)
         }*/
         return qbContainer;
     }
-    
+
     this.findQbChildren=function(eObject){
         var child=eObject.children();
         var reqChildren=[];
@@ -293,7 +311,7 @@ function qbBasics($compile)
                 }
                 else
                 {
-                    child=child.children();    
+                    child=child.children();
                 }
             }
             else
@@ -304,7 +322,7 @@ function qbBasics($compile)
         }
         return reqChildren;
     }
-    
+
     this.isQbType=function(eName){
         var eleName=angular.element(eName)[0].nodeName;
         if(((eleName[0])==="Q")&&((eleName[1])==="B")&&((eleName[2])==="-"))
@@ -316,7 +334,7 @@ function qbBasics($compile)
             return false;
         }
     }
-    
+
     this.contentsAlign=function(elem,hAlign,vAlign,widthType,heightType,contentsTotalWidth,contentHeight){
         var contsWidth=[];
         var contsHeight=[];
@@ -329,7 +347,7 @@ function qbBasics($compile)
                      angular.element(vCont)[0].style.float="left";
                  });
             }
-            
+
             else if(hAlign==="middle")
             {
                 if(widthType==="responsive")
@@ -370,7 +388,7 @@ function qbBasics($compile)
 	                angular.element(elem).css("padding-right",paddingWidth+"px");
                 }
             }
-            
+
             else if(hAlign==="right")
             {
                 angular.forEach(contents, function(vCont, kCont){
@@ -378,12 +396,12 @@ function qbBasics($compile)
                  });
             }
         }
-        
+
         if(vAlign)
         {
             if(vAlign==="top")
             {
-                
+
             }
             else if(vAlign==="centre")
             {
@@ -400,13 +418,13 @@ function qbBasics($compile)
     	                }
     	                i++;
 	                });
-	            
+
 	                var parentHeight=parseFloat(window.getComputedStyle(angular.element(elem)[0], null).getPropertyValue('height'));
 	                var paddingHeight=(parentHeight-lHeight)/2;
 	                var paddingPer=(paddingHeight/parentHeight)*100;
 	                angular.element(elem).css("padding-top",paddingPer+"%");
 	                angular.element(elem).css("padding-bottom",paddingPer+"%");
-	                
+
 	                i=0;
 	                angular.forEach(contents, function(vCont, kCont){
 	                    var heightPer=(contsHeight[i]/lHeight)*100;
@@ -433,11 +451,11 @@ function qbBasics($compile)
             }
             else if(vAlign==="bottom")
             {
-                
+
             }
         }
     }
-    
+
     this.contentsAlignResize=function(elem,hAlign,vAlign,widthType,heightType,contentsTotalWidth,contentHeight){
         var contsWidth=[];
         var contents=angular.element(elem).children();
@@ -449,7 +467,7 @@ function qbBasics($compile)
                      angular.element(vCont)[0].style.float="left";
                  });
             }
-            
+
             else if(hAlign==="middle")
             {
                 if(hAlign==="middle")
@@ -466,7 +484,7 @@ function qbBasics($compile)
 	                }
 	            }
             }
-            
+
             else if(hAlign==="right")
             {
                 angular.forEach(contents, function(vCont, kCont){
@@ -474,12 +492,12 @@ function qbBasics($compile)
                  });
             }
         }
-        
+
         if(vAlign)
         {
             if(vAlign==="top")
             {
-                
+
             }
             else if(vAlign==="centre")
             {
@@ -502,32 +520,32 @@ function qbBasics($compile)
             }
             else if(vAlign==="bottom")
             {
-                
+
             }
-            
+
         }
     }
-    
+
     this.compile=function(ele){
         var scope=angular.element(document.querySelector("qb-compile")).children().scope().qbCompileFun();
         var qbCompileEle=$compile(ele)(scope);
         return qbCompileEle;
-    }   
-    
+    }
+
     this.setInnerWidth=function(ele,outterWidth){
         var cont=angular.element(ele)[0];
-        
+
         var thisPaddingLeft=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('padding-left'));
         var thisPaddingRight=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('padding-right'));
         var thisMarginLeft=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('margin-left'));
         var thisMarginRight=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('margin-right'));
         var thisBorderLeft=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('border-left'));
         var thisBorderRight=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('border-right'));
-        
+
         var innerWidth=outterWidth-(thisPaddingLeft+thisPaddingRight+thisMarginLeft+thisMarginRight+thisBorderRight+thisBorderLeft);
         cont.style.width=innerWidth+"px";
 	}
-	
+
 	this.getRespPercents=function(ele,outterWidth){
 		var cont=angular.element(ele)[0];
 
@@ -562,10 +580,10 @@ function qbBasics($compile)
 		angular.element(cont).css('margin-right',(respPercents.marginRight*outterWidth)+"px");
 		angular.element(cont).css('width',(respPercents.innerWidth*outterWidth)+"px");
 	}
-    
+
     this.getOutterWidth=function(ele){
         var cont=angular.element(ele)[0];
-        
+
         var thisPaddingLeft=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('padding-left'));
         var thisPaddingRight=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('padding-right'));
         var thisMarginLeft=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('margin-left'));
@@ -573,7 +591,7 @@ function qbBasics($compile)
         var thisBorderLeft=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('border-left'));
         var thisBorderRight=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('border-right'));
         var thisWidth=parseFloat(window.getComputedStyle(cont, null).getPropertyValue('width'));
-        
+
         var outterWidth=(thisWidth+thisPaddingLeft+thisPaddingRight+thisMarginLeft+thisMarginRight+thisBorderRight+thisBorderLeft);
         return outterWidth;
     }

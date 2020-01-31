@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Speakers</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/Home Page.CSS">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <link rel="stylesheet" href="css/speaker.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+    {% load static %}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="js/speakers.js"></script>
+    <title>Speakers</title>
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/Home Page.CSS" %}">
+    <link rel="stylesheet" href="{% static "css/speaker.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script src="{% static "js/speakers.js" %}"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/animate.css">
 </head>
 <body ng-app="qbApp" ng-controller="qbCtrl">
@@ -54,83 +58,83 @@
         </div>
     </nav>
     
-    <div class="mid speaker-section">
-        <div class="pic-bg norm">
-            <div class="pic-cover">
-                <div class="pic-img" style="background-image:url('images/bill.jpg')"></div>
-                <div class="pic-des">
-                    <div class="card-title"> Bill Gates</div>
-                    <div class="card-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        <br>
-                        <a href="#"> See Her TedX Talk</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="pic-bg norm">
-            <div class="pic-cover">
-                <div class="pic-img" style="background-image:url('images/nolan.jpg')"></div>
-                <div class="pic-des">
-                    <div class="card-title"> Christopher Nolan</div>
-                    <div class="card-text"></div>
-                </div>
-            </div>
-        </div>
-        <div class="pic-bg norm">
-            <div class="pic-cover">
-                <div class="pic-img" style="background-image:url('images/steve.jpg')"></div>
-                <div class="pic-des">
-                    <div class="card-title"> Steve Jobs</div>
-                    <div class="card-text"></div>
-                </div>
-            </div>
-        </div>
-        <div class="pic-bg norm">
-            <div class="pic-cover">
-                <div class="pic-img" style="background-image:url('images/satya.jpg')"></div>
-                <div class="pic-des">
-                    <div class="card-title"> Satya Nadella</div>
-                    <div class="card-text"></div>
-                </div>
-            </div>
-        </div>
-        <div class="pic-bg norm">
-            <div class="pic-cover">
-                <div class="pic-img" style="background-image:url('images/bill.jpg')"></div>
-                <div class="pic-des">
-                    <div class="card-title"> Bill Gates</div>
-                    <div class="card-text"></div>
-                </div>
-            </div>
-        </div>
-        <div class="pic-bg norm">
-            <div class="pic-cover">
-                <div class="pic-img" style="background-image:url('images/nolan.jpg')"></div>
-                <div class="pic-des">
-                    <div class="card-title"> Christopher Nolan</div>
-                    <div class="card-text"></div>
-                </div>
-            </div>
-        </div>
-        <div class="pic-bg norm">
-            <div class="pic-cover">
-                <div class="pic-img" style="background-image:url('images/steve.jpg')"></div>
-                <div class="pic-des">
-                    <div class="card-title"> Steve Jobs</div>
-                    <div class="card-text"></div>
-                </div>
-            </div>
-        </div>
-        <div class="pic-bg norm">
-            <div class="pic-cover">
-                <div class="pic-img" style="background-image:url('images/satya.jpg')"></div>
-                <div class="pic-des">
-                    <div class="card-title"> Satya Nadella</div>
-                    <div class="card-text"></div>
-                </div>
-            </div>
-        </div>
+    <div class="mid speaker-section" id="speaker_details">
+        <!--<div class="pic-bg norm">-->
+            <!--<div class="pic-cover">-->
+                <!--<div class="pic-img" style="background-image:url('images/bill.jpg')"></div>-->
+                <!--<div class="pic-des">-->
+                    <!--<div class="card-title"> Bill Gates</div>-->
+                    <!--<div class="card-text">-->
+                        <!--Lorem ipsum dolor sit amet consectetur adipisicing elit.-->
+                        <!--<br>-->
+                        <!--<a href="#"> See Her TedX Talk</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="pic-bg norm">-->
+            <!--<div class="pic-cover">-->
+                <!--<div class="pic-img" style="background-image:url('images/nolan.jpg')"></div>-->
+                <!--<div class="pic-des">-->
+                    <!--<div class="card-title"> Christopher Nolan</div>-->
+                    <!--<div class="card-text"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="pic-bg norm">-->
+            <!--<div class="pic-cover">-->
+                <!--<div class="pic-img" style="background-image:url('images/steve.jpg')"></div>-->
+                <!--<div class="pic-des">-->
+                    <!--<div class="card-title"> Steve Jobs</div>-->
+                    <!--<div class="card-text"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="pic-bg norm">-->
+            <!--<div class="pic-cover">-->
+                <!--<div class="pic-img" style="background-image:url('images/satya.jpg')"></div>-->
+                <!--<div class="pic-des">-->
+                    <!--<div class="card-title"> Satya Nadella</div>-->
+                    <!--<div class="card-text"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="pic-bg norm">-->
+            <!--<div class="pic-cover">-->
+                <!--<div class="pic-img" style="background-image:url('images/bill.jpg')"></div>-->
+                <!--<div class="pic-des">-->
+                    <!--<div class="card-title"> Bill Gates</div>-->
+                    <!--<div class="card-text"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="pic-bg norm">-->
+            <!--<div class="pic-cover">-->
+                <!--<div class="pic-img" style="background-image:url('images/nolan.jpg')"></div>-->
+                <!--<div class="pic-des">-->
+                    <!--<div class="card-title"> Christopher Nolan</div>-->
+                    <!--<div class="card-text"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="pic-bg norm">-->
+            <!--<div class="pic-cover">-->
+                <!--<div class="pic-img" style="background-image:url('images/steve.jpg')"></div>-->
+                <!--<div class="pic-des">-->
+                    <!--<div class="card-title"> Steve Jobs</div>-->
+                    <!--<div class="card-text"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="pic-bg norm">-->
+            <!--<div class="pic-cover">-->
+                <!--<div class="pic-img" style="background-image:url('images/satya.jpg')"></div>-->
+                <!--<div class="pic-des">-->
+                    <!--<div class="card-title"> Satya Nadella</div>-->
+                    <!--<div class="card-text"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 
     <!--Apply Button-->
