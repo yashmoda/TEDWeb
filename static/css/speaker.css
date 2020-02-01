@@ -4,7 +4,20 @@ body {
   border: unset;
   padding: unset;
 }
-
+.btnpop{
+  background-color: red;
+  height: 50px;
+  font-size: 20px;
+  font-family: cursive;
+  color: white;
+  margin-bottom: 20px;
+}
+.btnpop:hover{
+  background-color: black;
+  color: white;
+  transition: steps();
+  height: 60px;
+}
 .mid {
   height: auto;
   width: 100%;

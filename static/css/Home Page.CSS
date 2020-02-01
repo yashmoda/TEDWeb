@@ -164,13 +164,12 @@ html, body{
     border: 1px solid white;
     color: white;
 }
-.con{
-    font-weight: 400;
-    padding-top: 0.2em;
-    padding-bottom: 0;
-    line-height: 1;
-    font-size: .9em;
+
+iframe{
+  height: 125px;
 }
-.form-group{
-    margin-bottom: 0.6em;
+
+#contact_modal_LongTitle{
+    color: black;
+
 }

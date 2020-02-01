@@ -20,7 +20,7 @@
 <body>
   <nav class="navbar navbar-expand-sm bgd navbar-dark">
        <div class="container">
-        <a class="navbar-brand" href="#"><img src="" height="50x" width="40px"></a>
+        <a class="navbar-brand" href="#"><img src="/static/images/TEDxLogo.png" height="60px" width="120px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,7 +55,7 @@
           <p id="demo" class="clk"></p>
         </div>
         <div class="bottomleft">
-          <p>The Extravaganza of Wizards</p>
+          <p>Coalesce of Ideas</p>
         </div>
       </div>
 
@@ -108,7 +108,7 @@
       </div>
       <div class="container text-center">
       <button type="button" class="btn btnpop" data-toggle="modal" data-target="#exampleModalCenter">
-        Apply to US
+        Apply to Us
       </button>
       </div>
       <!-- Modal -->
@@ -169,8 +169,7 @@
           <div class="foter-section link" >
             <h2>Catch Us At</h2>
             <div class="contact">
-              <span><i class="fa fa-phone">&nbsp; 123-456-789</i></span>
-              <span><i class="fa fa-envelope-o">&nbsp; tedxnitraipur.nitrr.ac.in</i></span>
+              <span><i class="fa fa-envelope-o">&nbsp; tedxnitraipur@nitrr.ac.in</i></span>
             </div>
             <div class="social">
               <a href="#"><i class="fa fa-facebook-official" ></i></a>
@@ -185,17 +184,14 @@
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.271576253507!2d81.603183737625!3d21.24995717107707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dde213f66723%3A0x21543965c50c43c7!2sNational%20Institute%20of%20Technology%2C%20Raipur!5e0!3m2!1sen!2sin!4v1578681614746!5m2!1sen!2sin" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
             </div>
-        <div class="foter-bottom">
-         &copy; TED<sup>x</sup>NITRaipur| Designed and maintained by Shashwat Awasthi
-         </div>
         </div>
-        <a href="#" class="floating-btn" data-toggle="modal" data-target="#applyForm"><i class="fa fa-question" aria-hidden="true"></i></a>
-        
-      <div class="modal fade" id="applyForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+        <a href="#" class="floating-btn" data-toggle="modal" data-target="#contact_modal"><i class="fa fa-question" aria-hidden="true"></i></a>
+              <div class="modal fade" id="contact_modal" tabindex="-1" role="dialog" aria-labelledby="contact_modal_Title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Contact Form</h5>
+              <h5 class="modal-title" id="contact_modal_LongTitle">Contact TED<sup>x</sup>NITRaipur</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -203,26 +199,30 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
+
+                  <label for="name" style="color: black">Your Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Your Name">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Contact Number</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Contact Number">
+                  <label for="phone_no" style="color: black">Contact Number</label>
+                  <input type="email" class="form-control" id="phone_no" placeholder="Your Phone Number">
                   <div class="form-group">
-                    <label for="Offer">Any Queries?</label>
-                    <input type="text" class="form-control" id="Offer" placeholder="State your queries here">
+                    <label for="query" style="color: black">Your Query</label>
+                    <input type="text" class="form-control" id="query" placeholder="Enter your query here.">
+
                   </div>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn- btnpop">Submit</button>
+
+              <button type="button" class="btn btn-primary btnpop" onclick="submit_contact_application()">Submit</button>
+
             </div>
           </div>
         </div>
       </div>
-        
-     
+      </div>
+
 </body>
 </html>

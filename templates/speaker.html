@@ -19,7 +19,6 @@
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/animate.css">
 </head>
 <body ng-app="qbApp" ng-controller="qbCtrl">
     
@@ -136,12 +135,51 @@
             <!--</div>-->
         <!--</div>-->
     </div>
-
-    <!--Apply Button-->
-    <div class="apply">
-        <button class="apply-button" ng-click="modalOpenFun()">Apply</button>
-    </div>
-
+    <div class="container text-center">
+        <button type="button" class="btn btnpop" data-toggle="modal" data-target="#exampleModalCenter">
+          Submit Nomination
+        </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Partner With TED<sup>x</sup>NITRaipur</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Company/Start-Up Name</label>
+                    <input type="text" class="form-control" id="sponsorname" placeholder="e.g. abc associates">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Company Domain</label>
+                    <input type="email" class="form-control" id="InputPassword" placeholder="Food etc.">
+                    <div class="form-group">
+                      <label for="Offer">Person of Contact</label>
+                      <input type="text" class="form-control" id="pointofcontact" placeholder="">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Sponsor Number</label>
+                      <input type="text" class="form-control" id="mobilenumber" placeholder="1234567890">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Sponsor E-Mail Address</label>
+                      <input type="text" class="form-control" id="InputEmail" placeholder="abc@example.com">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btnpop" onclick="submit_spons_application()">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
     <div class="foter">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-12">
@@ -176,48 +214,6 @@
                 &copy; TED<sup>x</sup>NITRaipur| Designed and maintained by Shashwat Awasthi
             </div>
         </div>
-        <a href="#" class="floating-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-question" aria-hidden="true"></i></a>
-
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Contact TED<sup>x</sup>NITRaipur</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Company/Start-Up Name</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="e.g. abc associates">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Company E-Mail Address</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="abc@example.com">
-                                <div class="form-group">
-                                    <label for="Offer">What Can you offer us?</label>
-                                    <input type="text" class="form-control" id="Offer" placeholder="Goodies,Monetory Funds etc.">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btnpop">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--For Modal Form-->
-    <div class="modal" id="applyForm">
-        <div class="modal-content">
-            <div class="modal-form"></div>
-            <div class="close" ng-click="modalCloseFun()">&times;</div>
-        </div>
-    </div>
 
 </body>
 </html>
