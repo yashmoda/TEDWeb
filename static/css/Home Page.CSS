@@ -5,7 +5,6 @@ html, body{
   .bgd{
       background-color: black;
   }
-  
   .bgimg {
     background-image: url(img/IMG_0177.JPG);
     /* Full-screen */
@@ -87,7 +86,10 @@ html, body{
   .tab button:hover {
     background-color: #ddd;
   }
-  
+  #eco{
+    margin: auto;
+    width: 15%;
+  }
   /* Create an active/current tablink class */
   .tab button.active {
     background-color: #ccc;
