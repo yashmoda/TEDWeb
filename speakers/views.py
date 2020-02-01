@@ -1,3 +1,4 @@
+import os
 from django.http import JsonResponse
 from django.shortcuts import render
 
@@ -14,34 +15,56 @@ def show_speaker_page(request):
 
 @csrf_exempt
 def speaker_application(request):
+    response_json = {}
     try:
-        response_json = {}
         if request.method == 'POST':
             speaker_name = request.POST.get('speaker_name')
             field_of_interest = request.POST.get('field_of_interest')
-            speaker_image = request.FILES.get('speaker_image')
+            speaker_image = request.FILES.get('speaker_image').name
             speaker_email = request.POST.get('speaker_email')
             speaker_phone = request.POST.get('speaker_phone')
-            speaker_resume = request.FILES.get('speaker_resume')
+            speaker_resume = request.FILES.get('speaker_resume').name
             previous_talk_link = request.POST.get('previous_talk_link')
             print(speaker_image)
             print(speaker_resume)
-            if SpeakerApplicationData.objects.filter(email=speaker_email,
-                                                     phone_no=speaker_phone).count() > 0:
-                response_json['success'] = True
-                response_json['message'] = "You have already applied. We will get back to you shortly."
-                return JsonResponse(response_json)
-            else:
-                speaker = SpeakerApplicationData.objects.create(name=speaker_name,
-                                                                domain=field_of_interest,
-                                                                image=speaker_image,
-                                                                email=speaker_email,
-                                                                phone_no=speaker_phone,
-                                                                profile=speaker_resume,
-                                                                previous_talk_link=previous_talk_link)
-                # send email for successful application.
-                response_json['success'] = True
-                response_json['message'] = "You will soon receive an email confirming your application."
+            try:
+                speaker_image_name = speaker_image.replace(" ", "_")
+                speaker_resume_name = speaker_resume.replace(" ", "_")
+                folder = "media/images/speakers/"
+                full_filename = os.path.join(folder, speaker_image_name)
+                print ("Full filename = " + full_filename)
+                fout = open(folder + speaker_image_name, 'w')
+                image_file_content = request.FILES.get('speaker_image').read()
+                fout.write(image_file_content)
+                fout.close()
+
+                folder = "media/profile/speakers/"
+                full_filename = os.path.join(folder, speaker_resume_name)
+                print ("Full filename = " + full_filename)
+                fout = open(folder + speaker_resume_name, 'w')
+                profile_file_content = request.FILES.get('speaker_resume').read()
+                fout.write(profile_file_content)
+                fout.close()
+                if SpeakerApplicationData.objects.filter(email=speaker_email,
+                                                         phone_no=speaker_phone).count() > 0:
+                    response_json['success'] = True
+                    response_json['message'] = "You have already applied. We will get back to you shortly."
+                    return JsonResponse(response_json)
+                else:
+                    speaker = SpeakerApplicationData.objects.create(name=speaker_name,
+                                                                    domain=field_of_interest,
+                                                                    image='/images/speakers/' + speaker_image_name,
+                                                                    email=speaker_email,
+                                                                    phone_no=speaker_phone,
+                                                                    profile='/profile/speakers/'+speaker_resume_name,
+                                                                    previous_talk_link=previous_talk_link)
+                    response_json['success'] = True
+                    response_json['message'] = "You will soon receive an email confirming your application."
+                    return JsonResponse(response_json)
+            except Exception as e:
+                print str(e)
+                response_json['success'] = False
+                response_json['message'] = "An error has occured. Please try again later."
                 return JsonResponse(response_json)
     except Exception as e:
         print str(e)
