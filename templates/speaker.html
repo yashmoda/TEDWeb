@@ -10,6 +10,7 @@
     <title>Speakers</title>
     <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/Home Page.CSS" %}">
     <link rel="stylesheet" href="{% static "css/speaker.css" %}">
     <link rel="stylesheet" href="{% static "css/animate.css" %}">
@@ -23,16 +24,16 @@
 </head>
 <body ng-app="qbApp" ng-controller="qbCtrl">
     
-    <nav class="navbar navbar-expand-sm bgd navbar-dark">
+    <nav class="navbar navbar-expand-sm bgd navbar-dark" style="padding-top:unset; padding-bottom:unset;">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="/static/images/TEDxLogo.png" height="100px" width="120px"></a>
+            <a class="navbar-brand" href="#"><img src="/static/images/TEDxLogo.png" style="object-fit:cover; height:50px" height="100px" width="120px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
     
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="">Home</a>
                     </li>
                     <li class="nav-item">
@@ -44,27 +45,145 @@
                     <li class="nav-item">
                         <a class="nav-link" href="team">Our Team</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="speakers">Previous Speakers</a>
                     </li>
-                    <!--<li>-->
-                        <!--<button type="button" class="btn notbtn">-->
-                            <!--ALerts <span class="badge badge-light">9</span>-->
-                            <!--<span class="sr-only">unread messages</span>-->
-                        <!--</button>-->
-                    <!--</li>-->
                 </ul>
             </div>
         </div>
     </nav>
-    
-    <div class="mid speaker-section" id="speaker_details">
 
+    <!--Why us ?-->
+    <div class="info">
+        <div class="title">Want to give a talk at TED<sup>x</sup> NITRaipur?</div>
+        <div class="points">
+            <div class="point">
+                <div style="font-size: 60px; margin: auto; width: 15%; padding: 15x;"><i class="fa fa-microphone circle-icon" aria-hidden="true"></i></div>
+
+                <div class="point-head">
+                    Apply
+                </div>
+                <div class="point-text">
+                    'A gathering of people from all walks of lives, sharing their story and their fight'. <br> Fill out the Application Form to apply!
+                </div>
+            </div>
+            <div class="point">
+                <div style="font-size: 60px; margin: auto; width: 15%; padding: 15x;"><i class="fa fa-commenting-o circle-icon" aria-hidden="true"></i></div>
+                <div class="point-head">
+                    Review
+                </div>
+                <div class="point-text">
+                    Our Review Team will go through your application and will notify you if you are shortlisted.
+                </div>
+            </div>
+            <div class="point">
+                <div style="font-size: 60px; margin: auto; width: 15%; padding: 15x;"><i class="fa fa-trophy circle-icon" aria-hidden="true"></i></div>
+                <div class="point-head">
+                    Pitch Perfect
+                </div>
+                <div class="point-text">
+                    If selected, Our specialized team will help you out to prepare and perfect your talk related to the theme.
+                </div>
+            </div>
+        </div>
+        <div class="apply-wrap">
+            <button class="apply-btn" ng-click="modalOpenFun()">Apply Now</button>
+        </div>
     </div>
+    <!--For Modal Form-->
 
-    <!--Apply Button-->
-    <div class="apply">
-        <button class="apply-button" ng-click="modalOpenFun()">Apply</button>
+    <!--For Modal Form-->
+    <div class="modal" id="applyForm">
+        <div class="modal-content">
+            <div class="modal-form">
+
+                <h4 class="modal-title">Nomination form of tedx NIT Raipur</h4>
+
+                <form>
+                    <br>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Your-name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Your-interest">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Your-number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="Your-email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload resume</label>
+                        <input type="file">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload image</label>
+                        <input type="file">
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" ng-click="modalCloseFun()" class="form-submit-btn">Submit</button>
+                    </div>
+
+                    </form>
+            </div>
+            <div class="close" ng-click="modalCloseFun()">&times;</div>
+        </div>
+    </div>
+<!--Why us ?-->
+    <script>
+        function submit_application()
+        {
+            var image_file = document.getElementById("speaker_image");
+            var resume_file = document.getElementById("speaker_resume");
+            image = image_file.files[0];
+            resume = resume_file.files[0];
+            var file_data = new FormData();
+            file_data.append('speaker_name', $("#speaker_name").val());
+            file_data.append('field_of_interest', $("#speaker_field_of_interest").val());
+            file_data.append('speaker_image', image);
+            file_data.append('speaker_email', $("#speaker_email_id").val());
+            file_data.append('speaker_phone', $("#speaker_contact_number").val());
+            file_data.append('speaker_resume', resume);
+            $.ajax({
+                type: "POST",
+                url: "/speaker/speaker_application/",
+                data: file_data,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    if (data.success==true)
+                    {
+                        console.log("done.");
+                        $("#speaker_name").val('');
+                        $("#speaker_field_of_interest").val('');
+                        $("#speaker_image").val('');
+                        $("#speaker_email_id").val('');
+                        $("#speaker_contact_number").val('');
+                        $("#speaker_resume").val('');
+                        document.querySelector("#applyForm").style.display="none";
+                    }
+                }
+            });
+        }
+    </script>
+
+    <div class="mid speaker-section" id="speaker_details">
+        <span class="title">
+            <h3>
+                Speakers of Previous Versions of TED<sup>x</sup> NIT Raipur
+            </h3>
+        </span>
     </div>
 
     <div class="foter">
@@ -93,52 +212,10 @@
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="foter-section map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.271576253507!2d81.603183737625!3d21.24995717107707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dde213f66723%3A0x21543965c50c43c7!2sNational%20Institute%20of%20Technology%2C%20Raipur!5e0!3m2!1sen!2sin!4v1578681614746!5m2!1sen!2sin" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                </div>
-            </div>
-        </div>
-        <a href="#" class="floating-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-question" aria-hidden="true"></i></a>
-
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Contact TED<sup>x</sup>NITRaipur</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Company/Start-Up Name</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="e.g. abc associates">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Company E-Mail Address</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="abc@example.com">
-                                <div class="form-group">
-                                    <label for="Offer">What Can you offer us?</label>
-                                    <input type="text" class="form-control" id="Offer" placeholder="Goodies,Monetory Funds etc.">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btnpop">Submit</button>
-                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.271576253507!2d81.603183737625!3d21.24995717107707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dde213f66723%3A0x21543965c50c43c7!2sNational%20Institute%20of%20Technology%2C%20Raipur!5e0!3m2!1sen!2sin!4v1578681614746!5m2!1sen!2sin" width="350" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                 </div>
             </div>
         </div>
     </div>
-
-    <!--For Modal Form-->
-    <div class="modal" id="applyForm">
-        <div class="modal-content">
-            <div class="modal-form"></div>
-            <div class="close" ng-click="modalCloseFun()">&times;</div>
-        </div>
-    </div>
-
 </body>
 </html>

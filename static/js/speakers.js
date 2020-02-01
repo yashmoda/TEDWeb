@@ -144,6 +144,12 @@ myApp.controller('qbCtrl', function($scope,$interval,qbBasics,$http,$compile) {
             $scope.modalCloseFun=function(){
                 applyForm.css("display","none");
             }
+            applyForm.bind("click",function(event){
+                if(angular.element(event.target).hasClass("modal"))
+                {
+                    $scope.modalCloseFun();
+                }
+            });
 
 
 
