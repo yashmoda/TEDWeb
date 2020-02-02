@@ -26,7 +26,7 @@
     
     <nav class="navbar navbar-expand-sm bgd navbar-dark" style="padding-top:unset; padding-bottom:unset;">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="/static/images/TEDxLogo.png" style="object-fit:cover; height:50px" height="100px" width="120px"></a>
+            <a class="navbar-brand" href="/"><img src="/static/images/TEDxLogo.png" style="object-fit:cover; height:50px" height="100px" width="120px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About Us</a>
@@ -97,42 +97,42 @@
         <div class="modal-content">
             <div class="modal-form">
 
-                <h4 class="modal-title">Nomination form of tedx NIT Raipur</h4>
+                <h4 class="modal-title">Nomination form of TED<sup>x</sup>NITRaipur</h4>
 
                 <form>
                     <br>
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Your-name">
+                        <input type="text" class="form-control" placeholder="John Smith" id="speaker_name">
                     </div>
 
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Your-interest">
+                        <label>Field of Interest</label>
+                        <input type="text" class="form-control" placeholder="Technology, Defence, etc" id="speaker_field_of_interest">
                     </div>
 
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Your-number">
+                        <label>Contact Number</label>
+                        <input type="text" class="form-control" placeholder="1234567890" id="speaker_contact_number">
                     </div>
 
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" placeholder="Your-email">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="abc@example.com" id="speaker_email_id">
                     </div>
 
                     <div class="form-group">
                         <label>Upload resume</label>
-                        <input type="file">
+                        <input type="file" id="speaker_resume">
                     </div>
 
                     <div class="form-group">
                         <label>Upload image</label>
-                        <input type="file">
+                        <input type="file" id="speaker_image">
                     </div>
 
                     <div class="form-submit">
-                        <button type="submit" ng-click="modalCloseFun()" class="form-submit-btn">Submit</button>
+                        <button type="submit" onclick="submit_application()" ng-click="modalCloseFun()" class="form-submit-btn">Submit</button>
                     </div>
 
                     </form>
@@ -181,7 +181,7 @@
     <div class="mid speaker-section" id="speaker_details">
         <span class="title">
             <h3>
-                Speakers of Previous Versions of TED<sup>x</sup> NIT Raipur
+                Speakers at Previous Versions of TED<sup>x</sup>NITRaipur
             </h3>
         </span>
     </div>
