@@ -7,7 +7,7 @@ myApp.controller('qbCtrl', function($scope,$interval,qbBasics,$http,$compile) {
     $http.get("/speaker/previous_speakers").then(function(previous_speakers){
         angular.forEach(previous_speakers.data.speaker_details,function(speaker_details,key){
             var picCover=$compile(angular.element("<div class=\"pic-bg norm\">    <div class=\"pic-cover\" speaker-id="+key+">   <div class=\"pic-img\" style=\"background-image:url('"+speaker_details.image+"')\"> </div>  <div class=\"pic-des\">  <div class=\"card-title\"><b> "+speaker_details.name+"</b></div> <div class=\"card-text\"> "+speaker_details.domain+"  <br> </div>    </div>    </div>    </div>"))($scope);
-            speakerDesEles[key]=$compile(angular.element("<div class=\"speaker-img\" style=\"background-image:url('"+speaker_details.image+"')\"> </div>   <div class=\"speaker-des\"> <div class=\"speaker-name\">"+speaker_details.name+"</div>  <div class=\"speaker-details\">"+speaker_details.description+"</div>   <a href=\""+speaker_details.previous_talk_link+"\"> Watch the TED<sup>x</sup> Talk</a>     </div>"))($scope);
+            speakerDesEles[key]=$compile(angular.element("<div class=\"speaker-img img-cover\" style=\"background-image:url('"+speaker_details.image+"')\"> </div>   <div class=\"speaker-des\"> <div class=\"speaker-name\">"+speaker_details.name+"</div>  <div class=\"speaker-details\">"+speaker_details.description+"</div>   <a href=\""+speaker_details.previous_talk_link+"\"> Watch the TED<sup>x</sup> Talk</a>     </div>"))($scope);
             angular.element(document.querySelector("#speaker_details")).append(picCover);
         });
 
