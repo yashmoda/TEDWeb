@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'kfs*trp&w998-%h9qrnpnpvn8t4n&9ae1a_t1irh)q)eb34cwl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['15.206.131.203', 'www.tedxnitraipur.com']
 
