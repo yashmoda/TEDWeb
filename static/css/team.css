@@ -4,14 +4,9 @@ body {
 
 .team-heads {
   overflow: hidden;
-  height: 600px;
-  margin-top: 100px;
-  margin-bottom: 100px;
 }
 
 .team-heads .glider-track {
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 .img-cover {
@@ -36,10 +31,14 @@ body {
   width: 90%;
   overflow: hidden;
   -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  transition-duration: 0.3s;
   border-radius: 8px;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0
+  rgba(0, 0, 0, 0.2), 0 6px 20px 0
+  rgba(0, 0, 0, 0.19);
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .img-slide .img-layer {
@@ -82,13 +81,12 @@ body {
 }
 
 .img-slide .img-layer:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .web-team {
   overflow: hidden;
   height: auto;
-  margin-top: 100px;
   margin-bottom: 100px;
 }
 
@@ -98,8 +96,6 @@ body {
 
 .web-team .web-glider .glider-track {
   height: 500px;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 .web-team .web-glider .glider-track figure {
