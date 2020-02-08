@@ -18,8 +18,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from home.views import show_home, show_team, show_speakers
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', show_home),
+    url(r'^team/$', show_team),
+    url(r'^speakers/', show_speakers),
     url(r'^speaker/', include('speakers.urls', namespace="speakers")),
     url(r'^contact/', include('contact.urls', namespace='contact')),
     url(r'^sponsors/', include('sponsors.urls', namespace='sponsors')),

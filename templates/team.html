@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Team Testing</title>
+    <title>Team TEDxNITRaipur</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<<<<<<< HEAD
     <script src="{% static "js/HomePage.js" %}"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -18,6 +23,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static "css/glider.min.CSS" %}" type="text/css">
     
+=======
+    <script src="{% static "js/team.js" %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="{% static "js/jquery.js" %}">
+    <link rel="stylesheet" href="{% static "css/team.css" %}">
+    <link rel="stylesheet" href="{% static "css/Home Page.CSS" %}">
+    <link rel="stylesheet" href="{% static "css/glider.min.css" %}">
+
+>>>>>>> dev
 </head>
 <body ng-app="qbApp" ng-controller="qbCtrl">
     <!--Header-->
@@ -27,7 +42,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
@@ -49,6 +64,7 @@
             </div>
         </div>
     </nav>
+<<<<<<< HEAD
     
     <!--Head Coordinator-->
     <div class="team-heads"> 
@@ -56,6 +72,15 @@
             <div class="heads-glider">
                 <figure>
                     <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('images/Devesh.jpg');">
+=======
+
+    <!--Head Coordinator-->
+    <div class="team-heads">
+        <div class="glider-contain multiple">
+            <div class="heads-glider">
+                <figure>
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('static/images/devesh.jpg');">
+>>>>>>> dev
                         <div class="img-layer">
                             <div class="img-des">
                                 <div class="img-title">
@@ -71,7 +96,11 @@
                     </div>
                 </figure>
                 <figure>
+<<<<<<< HEAD
                     <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('images/Guneet.jpg');">
+=======
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('static/images/Guneet.jpg');">
+>>>>>>> dev
                         <div class="img-layer">
                             <div class="img-des">
                                 <div class="img-title">
@@ -87,11 +116,19 @@
                     </div>
                 </figure>
                 <figure>
+<<<<<<< HEAD
                     <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('images/swati.jpg');">
                         <div class="img-layer">
                             <div class="img-des">
                                 <div class="img-title">
                                     Swati Mahato
+=======
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('static/images/shirish.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    Shirish Chandrakar
+>>>>>>> dev
                                 </div>
                                 <div class="img-content">
                                     <div class="img-text animated">
@@ -103,11 +140,19 @@
                     </div>
                 </figure>
                 <figure>
+<<<<<<< HEAD
                     <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('images/shirish.jpg');">
                         <div class="img-layer">
                             <div class="img-des">
                                 <div class="img-title">
                                     Shirish Chandrakar
+=======
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('static/images/swati.jpg');">
+                        <div class="img-layer">
+                            <div class="img-des">
+                                <div class="img-title">
+                                    Swati Mahato
+>>>>>>> dev
                                 </div>
                                 <div class="img-content">
                                     <div class="img-text animated">
@@ -119,7 +164,11 @@
                     </div>
                 </figure>
                 <figure>
+<<<<<<< HEAD
                     <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('images/Yash.jpg');">
+=======
+                    <div class="img-slide img-cover active-img" ng-mouseenter="qbHoverOnFun($event)" ng-mouseleave="qbHoverOffFun($event)" style="background-image: url('static/images/Yash.jpg');">
+>>>>>>> dev
                         <div class="img-layer">
                             <div class="img-des">
                                 <div class="img-title">
@@ -137,6 +186,7 @@
             </div>
 
             <div class="heads-glider-dots" id="web-resp-dots"></div>
+<<<<<<< HEAD
         </div>
     </div>
 
@@ -183,6 +233,167 @@
                             Computer Science<br>
                             Front-End Developer
                         </div>
+=======
+        </div>
+    </div>
+
+    <!--Web Team-->
+
+    <div class="web-team">
+        <div class="glider-contain multiple">
+            <div class="web-glider">
+                <figure>
+                    <div class="tile">
+                        <div class="tile-img-wrap">
+                            <div class="tile-img img-cover" style="background-image: url('static/images/Sugandha.jpg');">
+                                <div class="tile-img-layer">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile-title">
+                            <div class="tile-title-text">
+                                Sugandha Verma
+                            </div>
+                        </div>
+                        <div class="tile-des">
+                            Electronics<br>
+                            Back-End Developer
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="tile">
+                        <div class="tile-img-wrap">
+                            <div class="tile-img img-cover" style="background-image: url('static/images/Shashwat.jpg');">
+                                <div class="tile-img-layer">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile-title">
+                            <div class="tile-title-text">
+                                Shashwat Awasthi
+                            </div>
+                        </div>
+                        <div class="tile-des">
+                            Computer Science<br>
+                            Front-End Developer
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="tile">
+                        <div class="tile-img-wrap">
+                            <div class="tile-img img-cover" style="background-image: url('static/images/Hardik.jpg');">
+                                <div class="tile-img-layer">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile-title">
+                            <div class="tile-title-text">
+                                Hardik Pratap Singh
+                            </div>
+                        </div>
+                        <div class="tile-des">
+                            Computer Science<br>
+                            Back-End Developer
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="tile">
+                        <div class="tile-img-wrap">
+                            <div class="tile-img img-cover" style="background-image: url('static/images/Ayush.jpg');">
+                                <div class="tile-img-layer">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile-title">
+                            <div class="tile-title-text">
+                                Ayush Agrawal
+                            </div>
+                        </div>
+                        <div class="tile-des">
+                            Computer Science<br>
+                            Front-End Developer
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="tile">
+                        <div class="tile-img-wrap">
+                            <div class="tile-img img-cover" style="background-image: url('static/images/Srijan.jpg');">
+                                <div class="tile-img-layer">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile-title">
+                            <div class="tile-title-text">
+                                Srijan
+                            </div>
+                        </div>
+                        <div class="tile-des">
+                            Electronics<br>
+                            Front-End Developer
+                        </div>
+                    </div>
+                </figure>
+            </div>
+
+            <div class="web-glider-dots" id="web-resp-dots"></div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <div class="foter">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="foter-section about " >
+                    <h2>Quick Links</h2>
+                    <a href="#" style="color: white;"><li>TED</li></a>
+                    <a href="#" style="color: white;"><li>TED<sup>x</sup></li></a>
+                    <a href="#" style="color: white;"><li>NIT Raipur</li></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="foter-section link" >
+                    <h2>Catch Us At</h2>
+                    <div class="contact">
+                        <span><i class="fa fa-phone">&nbsp; 123-456-789</i></span>
+                        <span><i class="fa fa-envelope-o">&nbsp; tedxnitraipur.nitrr.ac.in</i></span>
+                    </div>
+                    <div class="social">
+                        <a href="#"><i class="fa fa-facebook-official" ></i></a>
+                        <a href="#"><i class="fa fa-instagram" ></i></a>
+                        <a href="#"><i class="fa fa-linkedin" ></i></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="foter-section map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.271576253507!2d81.603183737625!3d21.24995717107707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dde213f66723%3A0x21543965c50c43c7!2sNational%20Institute%20of%20Technology%2C%20Raipur!5e0!3m2!1sen!2sin!4v1578681614746!5m2!1sen!2sin" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+            <div class="foter-bottom">
+                &copy; TED<sup>x</sup>NITRaipur| Designed and maintained by Shashwat Awasthi
+            </div>
+        </div>
+        <a href="#" class="floating-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-question" aria-hidden="true"></i></a>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Contact TED<sup>x</sup>NITRaipur</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+>>>>>>> dev
                     </div>
                 </figure>
                 <figure>
@@ -250,6 +461,7 @@
             <div class="web-glider-dots" id="web-resp-dots"></div>
         </div>
     </div>
+<<<<<<< HEAD
 
     <div class="foter">
         
@@ -340,6 +552,18 @@
             slidesToScroll: 1,
             draggable:true,
             dots: '#web-resp-dots',
+=======
+
+
+    <script src="{% static "js/glider.js" %}"></script>
+    </body>
+    <script>
+        new Glider(document.querySelector(".heads-glider"),{
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            draggable:true,
+            dots: '#heads-resp-dots',
+>>>>>>> dev
             responsive: [
                 {
                     // screens greater than >= 775px
@@ -373,5 +597,46 @@
             ]
         })
     </script>
-</body>
+
+
+    <script>
+        new Glider(document.querySelector(".web-glider"),{
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            draggable:true,
+            dots: '#web-resp-dots',
+            responsive: [
+                {
+                    // screens greater than >= 775px
+                    breakpoint: 600,
+                    settings: {
+                        // Set to `auto` and provide item width to adjust to viewport
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        itemWidth: 150,
+                        duration: 0.25
+                    }
+                },{
+                    // screens greater than >= 1024px
+                    breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        itemWidth: 150,
+                        duration: 0.25
+                    }
+                },{
+                    // screens greater than >= 1024px
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        itemWidth: 150,
+                        duration: 0.25
+                    }
+                }
+            ]
+        })
+    </script>
+
 </html>

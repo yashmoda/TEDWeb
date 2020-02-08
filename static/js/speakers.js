@@ -1,152 +1,183 @@
 var myApp = angular.module('qbApp', []);
 myApp.controller('qbCtrl', function($scope,$interval,qbBasics,$http,$compile) {
-     var picCoverEles;
-    $http.get("/speaker/previous_speakers").then(function(data){
-        angular.forEach(data.data.speaker_details,function(speaker_details,key){
-            var picCover=$compile(angular.element("<div class=\"pic-bg norm\">    <div class=\"pic-cover\">   <div class=\"pic-img\" style=\"background-image:url('"+speaker_details.image+"')\"> </div>  <div class=\"pic-des\">  <div class=\"card-title\"> "+speaker_details.name+"</div> <div class=\"card-text\"> "+speaker_details.description+"  <br> <a href=\""+speaker_details.previous_talk_link+"\"> See Her TedX Talk</a> </div>    </div>    </div>    </div>"))($scope);
+    var picCoverEles;
+    //editing
+    var speakerDesEles=[];
+
+    $http.get("/speaker/previous_speakers").then(function(previous_speakers){
+        angular.forEach(previous_speakers.data.speaker_details,function(speaker_details,key){
+            var picCover=$compile(angular.element("<div class=\"pic-bg norm\">    <div class=\"pic-cover\" speaker-id="+key+">   <div class=\"pic-img\" style=\"background-image:url('"+speaker_details.image+"')\"> </div>  <div class=\"pic-des\">  <div class=\"card-title\"><b> "+speaker_details.name+"</b></div> <div class=\"card-text\"> "+speaker_details.domain+"  <br> </div>    </div>    </div>    </div>"))($scope);
+            speakerDesEles[key]=$compile(angular.element("<div class=\"speaker-img img-cover\" style=\"background-image:url('"+speaker_details.image+"')\"> </div>   <div class=\"speaker-des\"> <div class=\"speaker-name\">"+speaker_details.name+"</div>  <div class=\"speaker-details\">"+speaker_details.description+"</div>   <a href=\""+speaker_details.previous_talk_link+"\"> Watch the TED<sup>x</sup> Talk</a>     </div>"))($scope);
             angular.element(document.querySelector("#speaker_details")).append(picCover);
         });
 
         picCoverEles=document.querySelectorAll(".pic-cover");
         picCoverElesLoadFun();
     });
-        var openTextDesFun=function(picCover){
-                window.setTimeout(function(){
-                    if(angular.element(picCover).parent().hasClass("large"))
-                        angular.element(picCover.querySelector(".card-text")).css("display","block");
-                },500)
-            }
 
-            var closeTextDesFun=function(picCover){
-                angular.element(picCover.querySelector(".card-text")).css("display","none");
-            }
+    var openTextDesFun=function(picCover){
+        window.setTimeout(function(){
+            if(angular.element(picCover).parent().hasClass("large"))
+                angular.element(picCover.querySelector(".card-text")).css("display","block");
+        },500)
+    }
 
-            var picCoverElesLoadFun=function(){
+    var closeTextDesFun=function(picCover){
+        angular.element(picCover.querySelector(".card-text")).css("display","none");
 
-                angular.forEach(picCoverEles,function(picCoverEle,key){
-                angular.element(picCoverEle).attr("speaker-id",key);
-                angular.element(picCoverEle).bind("mouseenter",function(event){
-                    if(window.innerWidth>600)
+    }
+
+    var speakerDetailsModal=angular.element(document.querySelector("#speaker_data"));
+    $scope.speakerModalCloseFun=function(){
+        angular.element(speakerDetailsModal.children().children()[1]).empty();
+        speakerDetailsModal.css("display","none");
+    }
+    var picCoverElesLoadFun=function(){
+
+        angular.forEach(picCoverEles,function(picCoverEle,key){
+        angular.element(picCoverEle).attr("speaker-id",key);
+        angular.element(picCoverEle).bind("mouseenter",function(event){
+            if(window.innerWidth>600)
+            {
+                var speakerId=qbBasics.findParentByClassName(event.target,"pic-cover").attr("speaker-id");
+                var alignId=qbBasics.findParentByClassName(event.target,"pic-bg").attr("align-id");
+                angular.forEach(picCoverEles,function(picCover,keyNum){
+                    if(alignId==angular.element(picCover).parent().attr("align-id"))
                     {
-                        var speakerId=qbBasics.findParentByClassName(event.target,"pic-cover").attr("speaker-id");
-                        var alignId=qbBasics.findParentByClassName(event.target,"pic-bg").attr("align-id");
-                        angular.forEach(picCoverEles,function(picCover,keyNum){
-                            if(alignId==angular.element(picCover).parent().attr("align-id"))
-                            {
-                                angular.element(picCover).parent().removeClass("norm");
-                                if(keyNum==speakerId)
-                                {
-                                    angular.element(picCover).parent().addClass("large");
-                                    angular.element(picCover).parent().removeClass("small");
-                                    openTextDesFun(picCover);
-                                }
-                                else
-                                {
-                                    angular.element(picCover).parent().removeClass("large");
-                                    angular.element(picCover).parent().addClass("small");
-                                }
-                            }
-                        })
-                    }
-                });
-
-                angular.element(picCoverEle).bind("mouseleave",function(event){
-                    if(window.innerWidth>600)
-                    {
-                        var speakerId=qbBasics.findParentByClassName(event.target,"pic-cover").attr("speaker-id");
-                        angular.forEach(picCoverEles,function(picCover,keyNum){
-                            closeTextDesFun(picCover)
-                            angular.element(picCover).parent().addClass("norm");
-                            angular.element(picCover).parent().removeClass("large");
-                            angular.element(picCover).parent().removeClass("small");
-                        })
-                    }
-                });
-
-                angular.element(picCoverEle).bind("click",function(event){
-                    console.log(event);
-                })
-
-                closeTextDesFun(picCoverEle);
-            });
-            }
-
-            angular.element(window).bind("scroll",function(event){
-                if(window.innerWidth<600)
-                {
-                    var activeKey=0;
-                    angular.forEach(picCoverEles,function(picCover,key){
-                        if((picCover.getBoundingClientRect().top+picCover.getBoundingClientRect().height)<window.innerHeight*0.9)
-                        {
-                            activeKey=key;
-                        }
-
-                    });
-
-                    angular.forEach(picCoverEles,function(picCover,picCoverKey){
-                        if(picCoverKey==activeKey)
+                        angular.element(picCover).parent().removeClass("norm");
+                        if(keyNum==speakerId)
                         {
                             angular.element(picCover).parent().addClass("large");
-                            angular.element(picCover).parent().removeClass("norm");
+                            angular.element(picCover).parent().removeClass("small");
                             openTextDesFun(picCover);
                         }
                         else
                         {
-                            angular.element(picCover).parent().addClass("norm");
                             angular.element(picCover).parent().removeClass("large");
-                            closeTextDesFun(picCover);
+                            angular.element(picCover).parent().addClass("small");
                         }
-                    });
+                    }
+                })
+            }
+        });
+
+        angular.element(picCoverEle).bind("mouseleave",function(event){
+            if(window.innerWidth>600)
+            {
+                var speakerId=qbBasics.findParentByClassName(event.target,"pic-cover").attr("speaker-id");
+                angular.forEach(picCoverEles,function(picCover,keyNum){
+                    closeTextDesFun(picCover)
+                    angular.element(picCover).parent().addClass("norm");
+                    angular.element(picCover).parent().removeClass("large");
+                    angular.element(picCover).parent().removeClass("small");
+                })
+            }
+        });
+
+
+        //editing
+        angular.element(picCoverEle).bind("click",function(event){
+            var speakerId;
+            if(angular.element(event.target).hasClass("pic-cover"))
+            {
+                speakerId=angular.element(event.target).attr("speaker-id");
+            }
+            else
+            {
+                var picCoverTarget=qbBasics.findParentByClassName(event.target,"pic-cover");
+                speakerId=angular.element(picCoverTarget).attr("speaker-id");
+            }
+
+            if(speakerId)
+            {
+                angular.element(speakerDetailsModal.children().children()[1]).append(speakerDesEles[speakerId]);
+                speakerDetailsModal.css("display","block");
+            }
+        });
+
+        closeTextDesFun(picCoverEle);
+    });
+    }
+
+    angular.element(window).bind("scroll",function(event){
+        if(window.innerWidth<600)
+        {
+            var activeKey=0;
+            angular.forEach(picCoverEles,function(picCover,key){
+                if((picCover.getBoundingClientRect().top+picCover.getBoundingClientRect().height)<window.innerHeight*0.9)
+                {
+                    activeKey=key;
+                }
+
+            });
+
+            angular.forEach(picCoverEles,function(picCover,picCoverKey){
+                if(picCoverKey==activeKey)
+                {
+                    angular.element(picCover).parent().addClass("large");
+                    angular.element(picCover).parent().removeClass("norm");
+                    openTextDesFun(picCover);
+                }
+                else
+                {
+                    angular.element(picCover).parent().addClass("norm");
+                    angular.element(picCover).parent().removeClass("large");
+                    closeTextDesFun(picCover);
                 }
             });
+        }
+    });
 
 
-            angular.element(window).bind("resize",function(){
-                qbAlignIdSetFun();
-            });
-            var qbAlignIdSetFun=function(){
+    angular.element(window).bind("resize",function(){
+        qbAlignIdSetFun();
+    });
+    var qbAlignIdSetFun=function(){
 
-                var offSetTop=angular.element(picCoverEles[0]).parent()[0].offsetTop;
-                var alignId=0;
-                angular.forEach(picCoverEles,function(picCover,key){
-                    if(angular.element(picCover).parent()[0].offsetTop==offSetTop)
-                    {
-                        angular.element(picCover).parent().attr("align-id",alignId);
-                    }
-                    else
-                    {
-                        offSetTop=angular.element(picCover).parent()[0].offsetTop;
-                        alignId++;
-                        angular.element(picCover).parent().attr("align-id",alignId);
-                    }
-                });
+        var offSetTop=angular.element(picCoverEles[0]).parent()[0].offsetTop;
+        var alignId=0;
+        angular.forEach(picCoverEles,function(picCover,key){
+            if(angular.element(picCover).parent()[0].offsetTop==offSetTop)
+            {
+                angular.element(picCover).parent().attr("align-id",alignId);
             }
-
-            angular.element(document).ready(function(){
-                qbAlignIdSetFun();
-            });
-
-            var applyForm=angular.element(document.querySelector("#applyForm"));
-
-            var setModalFormPaddingFun=function(){
-                var qbTop=(parseFloat(window.getComputedStyle(applyForm[0], null).getPropertyValue('height'))-parseFloat(window.getComputedStyle(applyForm.children()[0], null).getPropertyValue('height')))/2;
-                applyForm.attr("qb-top",qbTop);
-                var qbLeft=(parseFloat(window.getComputedStyle(applyForm[0], null).getPropertyValue('width'))-parseFloat(window.getComputedStyle(applyForm.children()[0], null).getPropertyValue('width')))/2;
-                applyForm.attr("qb-left",qbLeft);
+            else
+            {
+                offSetTop=angular.element(picCover).parent()[0].offsetTop;
+                alignId++;
+                angular.element(picCover).parent().attr("align-id",alignId);
             }
+        });
+    }
 
-            setModalFormPaddingFun();
+    angular.element(document).ready(function(){
+        qbAlignIdSetFun();
+    });
 
-            $scope.modalOpenFun=function(){
-                applyForm.css("display","block");
-            }
+    var applyForm=angular.element(document.querySelector("#applyForm"));
 
-            $scope.modalCloseFun=function(){
-                applyForm.css("display","none");
-            }
+    var setModalFormPaddingFun=function(){
+        var qbTop=(parseFloat(window.getComputedStyle(applyForm[0], null).getPropertyValue('height'))-parseFloat(window.getComputedStyle(applyForm.children()[0], null).getPropertyValue('height')))/2;
+        applyForm.attr("qb-top",qbTop);
+        var qbLeft=(parseFloat(window.getComputedStyle(applyForm[0], null).getPropertyValue('width'))-parseFloat(window.getComputedStyle(applyForm.children()[0], null).getPropertyValue('width')))/2;
+        applyForm.attr("qb-left",qbLeft);
+    }
 
+    setModalFormPaddingFun();
 
+    $scope.modalOpenFun=function(){
+        applyForm.css("display","block");
+    }
 
+    $scope.modalCloseFun=function(){
+        applyForm.css("display","none");
+    }
+    applyForm.bind("click",function(event){
+        if(angular.element(event.target).hasClass("modal"))
+        {
+            $scope.modalCloseFun();
+        }
+    });
 });
 myApp.service('qbBasics',qbBasics);
 qbBasics.$inject=['$compile'];

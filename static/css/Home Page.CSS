@@ -24,15 +24,18 @@ html, body{
   }
   /* Position text in the bottom-left corner */
   .bottomleft {
-    position: absolute;
+    text-align:center;
     bottom: 0;
-    left: 16px;
+    position:relative;
+    padding-top: 100px;
+    font-weight:bold;
+    font-size:35px;
   }
   .clk{
       padding: 5px;
       border: solid 10px white;
   }
-  
+
   /* Position text in the middle */
   .middle {
     position: absolute;
@@ -41,7 +44,7 @@ html, body{
     transform: translate(-50%, -50%);
     text-align: center;
   }
-  
+
   /* Style the <hr> element */
   hr {
     margin: auto;
@@ -81,7 +84,7 @@ html, body{
     transition: 0.3s;
     font-size: 17px;
   }
-  
+
   /* Change background color of buttons on hover */
   .tab button:hover {
     background-color: #ddd;
@@ -94,19 +97,22 @@ html, body{
   .tab button.active {
     background-color: #ccc;
   }
-  
+
   /* Style the tab content */
   .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid red;
-    background: black;
-    color: white;
+    background:#e0e0de;
+    color: black;
 }
   .pt{
       margin-top: 15px;
       box-shadow: black;
       text-align: center;
+      padding-top: 30px;
+  padding-bottom: 30px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
   }
   .btnpop{
       background-color: red;
@@ -115,6 +121,7 @@ html, body{
       font-family: cursive;
       color: white;
       margin-bottom: 20px;
+      margin-top: 20px;
   }
   .btnpop:hover{
       background-color: black;
@@ -139,19 +146,19 @@ html, body{
     background-color: #333;
     color: wheat;
     text-align: center;
-    
+
     bottom: 0px;
     left: 0px;
     padding-top: 5px;
     width: 100%;
-    
+
 }
 .foter  .about .contact span{
     display: block;
     font-size: 1.1em;
     margin-bottom: 8px;
 }
-.foter  .about .social a{
+.foter .link .social a{
     border:1px solid gray;
     width: 45px;
     height: 41px;
@@ -162,7 +169,7 @@ html, body{
     font-size: 1.3em;
     border-radius: 5px;
 }
-.foter  .about .social a:hover{
+.foter .link .social a:hover{
     border: 1px solid white;
     color: white;
 }
@@ -173,5 +180,32 @@ iframe{
 
 #contact_modal_LongTitle{
     color: black;
+
+}
+
+#whole{
+background-color:#e0e0de;
+}
+.floating-btn{
+width:80px;
+height:80px;
+background:#eba40c;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+border-radius:50%;
+color:whitesmoke;
+font-size:60px;
+position:fixed;
+right:20px;
+bottom:20px;
+transition: background 0.25s;
+}
+
+.floating-btn:active{
+background:#eb0c0c;
+}
+
 
 }
