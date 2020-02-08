@@ -4,7 +4,7 @@ body {
 
 
 .img-cover-left {
-  background-position: right center;
+  background-position: 80% center;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -45,7 +45,7 @@ body {
 
   }
   .lead-organiser .tile .tile-img-wrap{
-    height: 60%;
+    height: 75%;
   }
 
   .title{
