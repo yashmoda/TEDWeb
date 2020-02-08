@@ -1,8 +1,10 @@
+from django.core.mail import send_mail
 from django.shortcuts import render
 from django.http import JsonResponse
 
 from django.views.decorators.csrf import csrf_exempt
 
+from TEDWeb.settings import EMAIL_HOST_USER
 from sponsors.models import SponsorApplicationData, SponsorData
 
 
@@ -20,6 +22,16 @@ def sponsors_application(request):
             person_of_contact = request.POST.get('person_of_contact')
             sponsor_no = request.POST.get('sponsor_no')
             sponsor_email = request.POST.get('sponsor_email')
+            try:
+                send_mail(
+                    'Sponsor Application',
+                    sponsor_name + ' has tried to apply to become a sponsor from the ' + sponsor_domain + ' domain. The sponsor can be reached out to ' + person_of_contact + ' at ' + sponsor_email + ' and ' + sponsor_no,
+                    EMAIL_HOST_USER,
+                    ['vsugandha17@gmail.com'],
+                    fail_silently=False
+                )
+            except Exception as e:
+                print str(e)
             if SponsorApplicationData.objects.filter(email=sponsor_email, contactNo=sponsor_no).count() > 0:
 
                 response_Json['success'] = True
