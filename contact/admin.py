@@ -3,4 +3,8 @@ from Registration.regi import Registration
 
 
 # Register your models here.
-admin.site.register(Registration)
+
+from contact.models import Queries
+
+admin.site.register(Queries)
+
