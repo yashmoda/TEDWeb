@@ -1,0 +1,211 @@
+html, body{
+    height: 100%;
+    scroll-behavior: smooth;
+}
+  .bgd{
+      background-color: black;
+  }
+  .bgimg {
+    background-image: url(img/IMG_0177.JPG);
+    /* Full-screen */
+    height: 100%;
+    /* Center the background image */
+    background-position: center;
+    /* Scale and zoom in the image */
+    background-size: cover;
+    /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+    position: relative;
+    /* Add a white text color to all elements inside the .bgimg container */
+    color: white;
+    /* Add a font */
+    font-family: "Courier New", Courier, monospace;
+    /* Set the font-size to 25 pixels */
+    font-size: 25px;
+  }
+  /* Position text in the bottom-left corner */
+  .bottomleft {
+    text-align:center;
+    bottom: 0;
+    position:relative;
+    padding-top: 100px;
+    font-weight:bold;
+    font-size:35px;
+  }
+  .clk{
+      padding: 5px;
+      border: solid 10px white;
+  }
+
+  /* Position text in the middle */
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  /* Style the <hr> element */
+  hr {
+    margin: auto;
+    width: 40%;
+  }
+  .notbtn{
+      color: white;
+  }
+  .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  .circle-icon {
+    background:red;
+    width: 80px;
+    height: 80px;
+   border-radius: 50%;
+   padding-top: 10px;
+    transition: 2s;
+}
+.circle-icon:hover {
+  background:white;
+  width: 80px;
+  height: 80px;
+  border-radius: 60%;
+  transition: .5s;
+}
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  #eco{
+    margin: auto;
+    width: 15%;
+  }
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    background:#e0e0de;
+    color: black;
+}
+  .pt{
+      margin-top: 15px;
+      box-shadow: black;
+      text-align: center;
+      padding-top: 30px;
+  padding-bottom: 30px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  }
+  .btnpop{
+      background-color: red;
+      height: 50px;
+      font-size: 20px;
+      font-family: cursive;
+      color: white;
+      margin-bottom: 20px;
+      margin-top: 20px;
+  }
+  .btnpop:hover{
+      background-color: black;
+      color: white;
+      transition: steps();
+      height: 60px;
+  }
+.foter{
+    background: black;
+    color: white;
+    height: auto;
+    position: relative;
+}
+
+.foter  .foter-section{
+ flex:1;
+ padding: 25px;
+}
+.foter  .foter-section .about{
+    align-items: center;}
+.foter .foter-bottom{
+    background-color: #333;
+    color: wheat;
+    text-align: center;
+
+    bottom: 0px;
+    left: 0px;
+    padding-top: 5px;
+    width: 100%;
+
+}
+.foter  .about .contact span{
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+.foter .link .social a{
+    border:1px solid gray;
+    width: 45px;
+    height: 41px;
+    padding-top: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    border-radius: 5px;
+}
+.foter .link .social a:hover{
+    border: 1px solid white;
+    color: white;
+}
+
+iframe{
+  height: 125px;
+}
+
+#contact_modal_LongTitle{
+    color: black;
+
+}
+
+#whole{
+background-color:#e0e0de;
+}
+.floating-btn{
+width:80px;
+height:80px;
+background:#eba40c;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+border-radius:50%;
+color:whitesmoke;
+font-size:60px;
+position:fixed;
+right:20px;
+bottom:20px;
+transition: background 0.25s;
+}
+
+.floating-btn:active{
+background:#eb0c0c;
+}
+
+
+}
