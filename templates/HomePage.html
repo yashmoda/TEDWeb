@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load static %}
+    <script src="{% static "js/angular.min.js" %}"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static "css/Home Page.CSS" %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <script src="{% static "js/HomePage.js" %}"></script>
+    <script src="{% static "js/currentSpeaker.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/currentSpeaker.css" %}">
     <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
-     <!-- <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script> -->
+     <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -66,8 +69,7 @@
 
     <title>TEDxNITRaipur</title>
 </head>
-<body >
-
+<body ng-app="qbApp" ng-controller="qbCtrl">
   <nav class="navbar navbar-expand-sm bgd navbar-dark">
        <div class="container">
         <a class="navbar-brand" href="#"><img src="/static/images/TEDxLogo.png" style="object-fit:cover; height:50px" height="100px" width="120px"></a>
@@ -87,7 +89,7 @@
               <!--<a class="nav-link" href="#">Gallery</a>-->
             <!--</li>-->
               <li class="nav-item">
-                <a class="nav-link" href="speakers">Previous Speakers</a>
+                <a class="nav-link" href="speakers">Speakers</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="team">Our Team</a>
@@ -109,9 +111,9 @@
           <p>Coalesce of Ideas</p>
         </div>
       </div>
-
       <div class="tab" id="about">
         <button id="tile1" class="tablinks" onclick="openCity(event, 'London')"><b>TED</b></button>
+
         <button  id="tile2" class="tablinks" onclick="openCity(event, 'Paris')"><b>TED<sup>x</sup></b></button>
         <button id="tile3" class="tablinks active" onclick="openCity(event, 'Tokyo')"><b>TED<sup>x</sup>NITRaipur</b></button>
       </div>
@@ -147,50 +149,10 @@
         </section>
       </div>
 
-     <div class="container">
-        <h2 style="text-align: center; padding-top: 5px;">Why partner with TED<sup>x</sup>NITRaipur?</h2></h2>
-        <hr style="border: 2px solid black;">
-       <section id="">
-        <div class="row" >
-
-
-          <div class="col-lg-6 col-sm-12 pt" >
-            <div style="font-size: 60px;"><i class="fa fa-link circle-icon" aria-hidden="true"></i></div>
-            <h5>Why TED<sup>x</sup>NITRaipur?</h5>
-            <p>
-                Enlighting thousands of budding minds with an agenda of making great ideas accessible to igniting brains. Connecting with us will help you extend your outreach and grow in competitive market and beyond.
-            </p>
-          </div>
-          <div class="col-lg-6 col-sm-12 pt" id="sec2">
-            <div style="font-size: 50px;"><i class="fa fa-bar-chart circle-icon" aria-hidden="true"></i></div>
-            <h5>Brand Linking</h5>
-            <p>
-                Get a huge bussiness exposure and a chance of association with an International brand and a community of thinkers and professionals sharing a common vision with TED<sup>x</sup>NIT Raipur as it's epicentre.
-              </p>
-          </div>
-          <div class="col-lg-6 col-sm-12 pt" id="sec3">
-            <div style="font-size:60px;"><i class="fa fa-users circle-icon" aria-hidden="true"></i></div>
-            <h5>Diverse Audience</h5>
-            <p>
-                TED<sup>x</sup>NIT Raipur consists of Audience from all walks of life. The Audience are not only the part of our event but also become a part of our TED community. The Audience will consist of such people who will not only increase your credibility but also will understand for what you do and why you do it.
-            </p>
-          </div>
-            <div class="col-lg-6 col-sm-12 pt" id="sec4">
-            <div style="font-size:60px;"><i class="fa fa-usd circle-icon" aria-hidden="true"></i></div>
-            <h5>Value For Money</h5>
-            <p>
-              We realize that your brand and money is valuable and we want to ensure that you get value for your contribution. We will provide a platform for you to showcase your ideas and design in front of exceptional individuals from various fields such as Technology, Entertainment, Academics and similar enthusiastic students and people from all.
-            </p>
-          </div>
-        </div>
-      </section>
-
+      <div class="mid speaker-section" id="current_speaker">
+        <div class="title">Speakers of TED<sup>x</sup>NITRaipur 2020</div><hr style="border: solid 2px black">
       </div>
-      <div class="container text-center">
-      <button type="button" class="btn btnpop" data-toggle="modal" data-target="#exampleModalCenter">
-        Partner With Us
-      </button>
-      </div>
+
       <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

@@ -1,0 +1,410 @@
+.img-cover{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .mid {
+    height: auto;
+    width: 100%;
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    padding-top: 40px;
+    text-align: center;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+    overflow: hidden;
+  }
+  
+  .mid .title {
+    height: auto;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  
+  .mid .pic-bg {
+    position: relative;
+    display: inline-block;
+    float: left;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+  }
+  
+  .mid .pic-bg .pic-cover {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+    background-color: white;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+  }
+  
+  .mid .pic-bg .pic-cover .pic-img {
+    background-image: url("../images/Raj-Shamani.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+  }
+  
+  .mid .pic-bg .pic-cover .pic-des {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .mid .pic-bg .pic-cover .pic-des .card-text {
+    font-family: sans-serif;
+    font-size: 20px;
+    height: auto;
+    display: none;
+    font-weight: 500;
+  }
+  
+  .mid .pic-bg .pic-cover .pic-des .card-temp {
+    height: auto;
+  }
+  
+  .norm {
+    width: 25%;
+    height: 25vw;
+  }
+  
+  .norm .pic-cover {
+    height: 70%;
+    margin-top: 15%;
+    margin-bottom: 15%;
+  }
+  
+  .norm .pic-cover .pic-img {
+    height: 70%;
+  }
+  
+  .norm .pic-cover .pic-des {
+    height: 24%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  
+  .norm .pic-cover .pic-des .card-title {
+    height: 100%;
+  }
+  
+  .norm .pic-cover .pic-des .card-text {
+    height: 0%;
+    overflow: hidden;
+  }
+  
+  .large {
+    height: 40vw;
+    width: 40%;
+  }
+  
+  .large .pic-cover {
+    height: 70%;
+    margin-top: 15%;
+    margin-bottom: 15%;
+  }
+  
+  .large .pic-cover .pic-img {
+    height: 60%;
+  }
+  
+  .large .pic-cover .pic-des {
+    height: 34%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  
+  .large .pic-cover .pic-des .card-title {
+    height: auto;
+    font-size: 25px;
+  }
+  
+  .large .pic-cover .pic-des .card-text {
+    height: auto;
+    overflow: hidden;
+    font-size: 20px;
+  }
+  
+  .small {
+    height: 40vw;
+    width: 20%;
+  }
+  
+  .small .pic-cover {
+    height: 30%;
+    margin-top: 85%;
+    margin-bottom: 85%;
+  }
+  
+  .small .pic-cover .pic-img {
+    height: 70%;
+  }
+  
+  .small .pic-cover .pic-des {
+    height: 24%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+  }
+  
+  .small .pic-cover .pic-des .card-title {
+    height: 100%;
+    font-size: 15px;
+  }
+  
+  .small .pic-cover .pic-des .card-text {
+    height: 0%;
+    padding-bottom: 5%;
+    overflow: hidden;
+    font-size: 12px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .mid {
+      height: auto;
+      width: 100%;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-top: 40px;
+    }
+    .mid .pic-bg {
+      float: none;
+    }
+    .norm {
+      width: 80%;
+      height: 80vw;
+    }
+    .norm .pic-cover {
+      height: 80%;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+    .norm .pic-cover .pic-img {
+      height: 75%;
+    }
+    .norm .pic-cover .pic-des {
+      height: 19%;
+      padding-bottom: 3%;
+      padding-top: 3%;
+    }
+    .norm .pic-cover .pic-des .card-title {
+      height: 100%;
+    }
+    .norm .pic-cover .pic-des .card-text {
+      height: 0%;
+      overflow: hidden;
+    }
+    .large {
+      height: 100vw;
+      width: 100%;
+    }
+    .large .pic-cover {
+      height: 90%;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+    .large .pic-cover .pic-img {
+      height: 60%;
+    }
+    .large .pic-cover .pic-des {
+      height: 34%;
+      padding-bottom: 3%;
+      padding-top: 3%;
+    }
+    .large .pic-cover .pic-des .card-title {
+      height: auto;
+    }
+    .large .pic-cover .pic-des .card-text {
+      height: auto;
+      overflow: hidden;
+    }
+    .small {
+      width: 80%;
+      height: 80vw;
+    }
+    .small .pic-cover {
+      height: 60%;
+      margin-top: 20%;
+      margin-bottom: 20%;
+    }
+    .small .pic-cover .pic-img {
+      height: 70%;
+    }
+    .small .pic-cover .pic-des {
+      height: 24%;
+      padding-bottom: 3%;
+      padding-top: 3%;
+    }
+    .small .pic-cover .pic-des .card-title {
+      height: 100%;
+    }
+    .small .pic-cover .pic-des .card-text {
+      height: 0%;
+      overflow: hidden;
+    }
+  }
+  
+  @media only screen and (max-width: 900px) and (min-width: 601px) {
+    .mid {
+      height: auto;
+      width: 100%;
+      padding-left: 7.5%;
+      padding-right: 7.5%;
+      padding-top: 40px;
+    }
+    .norm {
+      width: 50%;
+      height: 50vw;
+    }
+    .norm .pic-cover {
+      height: 60%;
+      margin-top: 20%;
+      margin-bottom: 20%;
+    }
+    .norm .pic-cover .pic-img {
+      height: 70%;
+    }
+    .norm .pic-cover .pic-des {
+      height: 24%;
+      padding-bottom: 3%;
+      padding-top: 3%;
+    }
+    .norm .pic-cover .pic-des .card-title {
+      height: 100%;
+    }
+    .norm .pic-cover .pic-des .card-text {
+      height: 0%;
+      overflow: hidden;
+    }
+    .large {
+      height: 70vw;
+      width: 70%;
+    }
+    .large .pic-cover {
+      height: 60%;
+      margin-top: 20%;
+      margin-bottom: 20%;
+    }
+    .large .pic-cover .pic-img {
+      height: 55%;
+    }
+    .large .pic-cover .pic-des {
+      height: 45%;
+    }
+    .large .pic-cover .pic-des .card-title {
+      height: auto;
+    }
+    .large .pic-cover .pic-des .card-text {
+      height: auto;
+      overflow: hidden;
+    }
+    .small {
+      width: 30%;
+      height: 70vw;
+    }
+    .small .pic-cover {
+      height: 30%;
+      margin-top: 85%;
+      margin-bottom: 85%;
+    }
+    .small .pic-cover .pic-img {
+      height: 70%;
+    }
+    .small .pic-cover .pic-des {
+      height: 24%;
+      padding-bottom: 3%;
+      padding-top: 3%;
+    }
+    .small .pic-cover .pic-des .card-title {
+      height: 100%;
+    }
+    .small .pic-cover .pic-des .card-text {
+      height: 0%;
+      overflow: hidden;
+    }
+  }
+  
+  @media only screen and (min-width: 901px) and (max-width: 1200px) {
+    .mid {
+      height: auto;
+      width: 100%;
+      padding-left: auto;
+      padding-right: auto;
+      padding-top: 40px;
+    }
+    .norm {
+      width: 33.3333%;
+      height: 33.33333vw;
+    }
+    .norm .pic-cover {
+      height: 60%;
+      margin-top: 20%;
+      margin-bottom: 20%;
+    }
+    .norm .pic-cover .pic-img {
+      height: 70%;
+    }
+    .norm .pic-cover .pic-des {
+      height: 24%;
+      padding-bottom: 3%;
+      padding-top: 3%;
+    }
+    .norm .pic-cover .pic-des .card-title {
+      height: 100%;
+    }
+    .norm .pic-cover .pic-des .card-text {
+      height: 0%;
+      overflow: hidden;
+    }
+    .large {
+      height: 60vw;
+      width: 50%;
+    }
+    .large .pic-cover {
+      height: 60%;
+      margin-top: 20%;
+      margin-bottom: 20%;
+    }
+    .large .pic-cover .pic-img {
+      height: 55%;
+    }
+    .large .pic-cover .pic-des {
+      height: 45%;
+    }
+    .large .pic-cover .pic-des .card-title {
+      height: auto;
+    }
+    .large .pic-cover .pic-des .card-text {
+      height: auto;
+      overflow: hidden;
+    }
+    .small {
+      width: 25%;
+      height: 60vw;
+    }
+    .small .pic-cover {
+      height: 25%;
+      margin-top: 94%;
+      margin-bottom: 94%;
+    }
+    .small .pic-cover .pic-img {
+      height: 70%;
+    }
+    .small .pic-cover .pic-des {
+      height: 24%;
+      padding-bottom: 3%;
+      padding-top: 3%;
+    }
+    .small .pic-cover .pic-des .card-title {
+      height: 100%;
+    }
+    .small .pic-cover .pic-des .card-text {
+      height: 0%;
+      overflow: hidden;
+    }
+  }

@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^contact/', include('contact.urls', namespace='contact')),
     url(r'^sponsors/', include('sponsors.urls', namespace='sponsors')),
     url(r'^regi/', include('regi.urls', namespace='regi')),
+    url(r'^gallery/', include('gallery.urls', namespace='gallery' )),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

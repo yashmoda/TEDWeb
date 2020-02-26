@@ -109,7 +109,8 @@ def current_speakers(request):
                              'description': current_speaker.description,
                              'image': request.scheme + '://' + request.get_host() +
                                       '/media/' + str(current_speaker.image),
-                             'id': current_speaker.id}
+                             'id': current_speaker.id,
+                             'description': current_speaker.description}
                 response_json['speaker_details'].append(temp_json)
             response_json['success'] = True
             response_json['message'] = "The list of current speakers has been successfully shown."

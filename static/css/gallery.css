@@ -1,0 +1,301 @@
+.img-cover {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content {
+  width: 100%;
+  height: auto;
+}
+
+#topStage{
+  background-image: url(/static/images/NITRR.jpg);
+}
+
+#teamCover{
+  background-image: url(/static/images/team.jpg);
+}
+
+#venueCover{
+  background-image: url(/static/images/DDU.jpg);
+}
+.top-stage {
+  width: 100%;
+  height: 80vh;
+  text-align: center;
+}
+
+.top-stage .top-stage-cover {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.mid-stage {
+  position: relative;
+  z-index: 2;
+}
+
+.mid-stage .gallery-text-wrap {
+  text-align: center;
+  position: relative;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  z-index: 2;
+}
+
+.mid-stage .gallery-text-wrap .gallery-text {
+  background-color: #ffffff;
+  padding-right: 15%;
+  padding-left: 15%;
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.mid-stage .gallery-text-wrap .gallery-text .gallery-title {
+  position: relative;
+  height: auto;
+  font-family: sans-serif;
+  font-size: 25px;
+  font-weight: 550;
+}
+
+.mid-stage .gallery-text-wrap .gallery-text .gallery-slogan {
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 550;
+  letter-spacing: 5px;
+}
+
+.mid-stage .top-gallery {
+  width: 100%;
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+
+.mid-stage .top-gallery .custom-card {
+  width: 40%;
+  float: left;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.mid-stage .top-gallery .custom-card .card-text {
+  font-size: 25px;
+  font-weight: 550;
+  color: inherit;
+  padding: 10px;
+  text-align: center;
+}
+
+.mid-stage .top-gallery .custom-card .card-content {
+  width: 100%;
+  padding: 5%;
+  height: 25vw;
+  font-family: inherit;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+.mid-stage .top-gallery .custom-card .card-content .card-img {
+  height: 100%;
+}
+
+.mid-stage .top-gallery .custom-card .card-content .card-img .card-img-layer {
+  width: 100%;
+  height: 100%;
+}
+
+.mid-stage .main-gallery .title {
+  text-align: center;
+  padding-bottom: 20px;
+  position: relative;
+  height: auto;
+  font-family: sans-serif;
+  font-size: 25px;
+  font-weight: 550;
+}
+
+.mid-stage .main-gallery .gallery-pics-wrap-container .gallery-pics-wrap-portrait {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  float: none;
+  height: auto;
+}
+
+.mid-stage .main-gallery .gallery-pics-wrap-container .gallery-pics-wrap-portrait .gallery-pic-cover {
+  width: auto;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.mid-stage .main-gallery .gallery-pics-wrap-container .gallery-pics-wrap-portrait .gallery-pic-cover .gallery-pic {
+  overflow: hidden;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+}
+
+.mid-stage .main-gallery .gallery-pics-wrap-container .gallery-pics-wrap-portrait .gallery-pic-cover .gallery-pic img {
+  position: relative;
+}
+
+.mid-stage .main-gallery .gallery-pics-wrap-container .gallery-pics-wrap-landscape {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  float: none;
+  height: auto;
+}
+
+.mid-stage .main-gallery .gallery-pics-wrap-container .gallery-pics-wrap-landscape .gallery-pic-cover {
+  width: auto;
+  overflow: hidden;
+  display: inline-block;
+  height: auto;
+}
+
+.mid-stage .main-gallery .gallery-pics-wrap-container .gallery-pics-wrap-landscape .gallery-pic-cover .gallery-pic {
+  overflow: hidden;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+}
+
+.mid-stage .main-gallery .gallery-pics-wrap-container .gallery-pics-wrap-landscape .gallery-pic-cover .gallery-pic img {
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .mid-stage .gallery-text-wrap {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  .mid-stage .top-gallery {
+    width: 100%;
+    padding-top: 10px;
+    overflow: hidden;
+  }
+  .mid-stage .top-gallery .custom-card {
+    width: 80%;
+    float: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+  }
+  .mid-stage .top-gallery .custom-card .card-text {
+    font-size: 25px;
+    font-weight: 550;
+    color: inherit;
+    padding: 10px;
+    text-align: center;
+  }
+  .mid-stage .top-gallery .custom-card .card-content {
+    width: 100%;
+    padding: 5%;
+    height: 50vw;
+    font-family: inherit;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  }
+  .mid-stage .top-gallery .custom-card .card-content .card-img {
+    height: 100%;
+  }
+  .mid-stage .top-gallery .custom-card .card-content .card-img .card-img-layer {
+    width: 100%;
+    height: 100%;
+  }
+  .top-stage {
+    height: 70vh;
+  }
+}
+
+/* Modal CSS*/
+.qb-modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 10;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  /* Modal Content */
+  /*Chnages for mobo view*/
+}
+
+.qb-modal .qb-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  height: auto;
+  border: 1px solid #888;
+  width: 80%;
+  position: relative;
+  top: 20%;
+}
+
+.qb-modal .qb-modal-content .qb-close-wrap {
+  width: auto;
+  position: relative;
+  top: -10px;
+}
+
+.qb-modal .qb-modal-content .qb-close-wrap .qb-close {
+  z-index: 1000;
+  top: -20px;
+  color: #505050;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  right: -30px;
+}
+
+.qb-modal .qb-modal-content .qb-close-wrap .qb-close .qb-close-icon {
+  top: 0;
+  position: absolute;
+  left: 0;
+  background-color: white;
+  border-radius: 50%;
+  padding-left: 13px;
+  padding-right: 12px;
+  padding-top: 10px;
+  padding-bottom: 11px;
+}
+
+.qb-modal .qb-modal-content .qb-close-wrap .qb-close:hover,
+.qb-modal .qb-modal-content .qb-close-wrap .qb-close:focus {
+  color: #141414;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.qb-modal .qb-modal-content .iframe-container {
+  top: 0;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.qb-modal .qb-modal-content .iframe-container iframe {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=gallery.css.map */
