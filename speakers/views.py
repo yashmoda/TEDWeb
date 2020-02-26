@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 # current_speakers
 from django.views.decorators.csrf import csrf_exempt
 
-from TEDWeb.settings import EMAIL_HOST_USER
+# from TEDWeb.settings import EMAIL_HOST_USER
 from speakers.models import SpeakerApplicationData
 
 def show_speaker_page(request):

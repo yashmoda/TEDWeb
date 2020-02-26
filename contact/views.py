@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from TEDWeb.settings import EMAIL_HOST_USER
+# from TEDWeb.settings import EMAIL_HOST_USER
 from contact.models import Queries
 
 

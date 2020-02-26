@@ -41,13 +41,27 @@
 
 
       });
+      $(document).ready(function(){
+         $("#register").hover(function(){
+           $(this).css("background-color","white");
+          });
+          $("#register").hover(function(){
+           $(this).css("color","black");
+          });
+          $("#register").hover(function(){
+           $(this).show();
+          });
+
+      });
+
 
 
 </script>
 
     <title>TEDxNITRaipur</title>
 </head>
-<body>
+<body >
+
   <nav class="navbar navbar-expand-sm bgd navbar-dark">
        <div class="container">
         <a class="navbar-brand" href="#"><img src="/static/images/TEDxLogo.png" style="object-fit:cover; height:50px" height="100px" width="120px"></a>
@@ -80,7 +94,8 @@
 
       <div class="bgimg">
         <div class="middle">
-            <h1><b>COMING SOON</b></h1>
+            <h1><b><a href="#" class="btn " id="register" data-toggle="modal" data-target="#registermodal" ><b><h4>Register Now</h4></b></a>
+        </b></h1>
           <hr>
           <p id="demo" class="clk"></p>
         </div>
@@ -106,7 +121,7 @@
       <div id="Tokyo" class="tabcontent">
         <p>Propelled by scintillating innovations, and driven by enlightening the youth of advancements, all around, TEDxNITRaipur strives to foster the core idea, “Ideas worth spreading”, among local communities, and bring to light, the local stars, who have been involved in the construction for a better life, for the generations to come. Held every year, since 2017, and amassing rich support, beating previous records, and inspiring people to explore beyond the conventions, TEDxNITRaipur, with its passionate team of stalwarts, endeavor to begin a new edition with a completely novel, invigorating ambience, and avant-garde themes.</p>
       </div>
-
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WlxpBxr6ppc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <div class="container-fluid"  >
         <h3 style="text-align: center; padding-top: 5px;">LOCATION</h3>
         <hr style="border: 2px solid black;" id="eco">
@@ -125,8 +140,6 @@
             </div>
         </section>
       </div>
-
-
 
      <div class="container">
         <h2 style="text-align: center; padding-top: 5px;">Why partner with TED<sup>x</sup>NITRaipur?</h2></h2>
@@ -213,6 +226,40 @@
         </div>
       </div>
 
+       <div class="modal fade" id="registermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Register for the event</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="personsname" placeholder="Full Name">
+                </div>
+                <div>
+                  <div class="form-group">
+                    <label for="mobilenumber">Contact Number</label>
+                    <input type="text" class="form-control" id="mobilenumber1" placeholder="1234567890">
+                  </div>
+                  <div class="form-group">
+                    <label for="InputEmail">E-Mail Address</label>
+                    <input type="text" class="form-control" id="InputEmail1" placeholder="abc@example.com">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btnpop" onclick="register()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="foter">
 
           <div class="row">
@@ -286,5 +333,26 @@
       </div>
 
 </body>
+
+<script>
+    function register()
+    {
+        $.ajax({
+        url: "/sponsors/sponsor_application/",
+        type: "POST",
+        dataType: "json",
+        data: {"name": $("#personsname").val(), "phone_no": $("#mobilenumber1").val(), "email_id": $("#InputEmail1").val()},
+        success: function(data) {
+          if(data.success == true)
+          {
+            $("#personsname").val('');
+            $("#InputEmail1").val('');
+            $("#mobilenumber1").val('');
+            console.log("successful.");
+          }
+        }
+      });
+    }
+</script>
 
 </html>

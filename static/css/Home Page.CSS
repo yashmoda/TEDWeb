@@ -31,6 +31,16 @@ html, body{
     font-weight:bold;
     font-size:35px;
   }
+  #register{
+    color:white;
+    text-align:center;
+    position:relative;
+    padding-top: 20px;
+    font-weight: bold;
+    font-size:45px;
+    padding: 5px;
+    border: solid 5px white;
+  }
   .clk{
       padding: 5px;
       border: solid 10px white;
@@ -207,5 +217,3 @@ transition: background 0.25s;
 background:#eb0c0c;
 }
 
-
-}

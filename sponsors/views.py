@@ -4,8 +4,8 @@ from django.http import JsonResponse
 
 from django.views.decorators.csrf import csrf_exempt
 
-from TEDWeb.settings import EMAIL_HOST_USER
-from sponsors.models import SponsorApplicationData, SponsorData
+# from TEDWeb.settings import EMAIL_HOST_USER
+from sponsors.models import SponsorApplicationData
 
 
 def show_home(request):
