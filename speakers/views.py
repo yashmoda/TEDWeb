@@ -1,7 +1,6 @@
 import os
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.core.mail import send_mail
 
 # speaker_application
 # previous_speakers
@@ -27,16 +26,6 @@ def speaker_application(request):
             speaker_phone = request.POST.get('speaker_phone')
             speaker_resume = request.FILES.get('speaker_resume').name
             previous_talk_link = request.POST.get('previous_talk_link')
-            try:
-                send_mail(
-                    'Speaker Application',
-                    speaker_name + ' has tried to apply to become a speaker. The speaker can be reached out at ' + speaker_email+' and ' + speaker_phone,
-                    EMAIL_HOST_USER,
-                    ['yashmoda624@gmail.com'],
-                    fail_silently=False
-                )
-            except Exception as e:
-                print e
             print(speaker_image)
             print(speaker_resume)
             try:

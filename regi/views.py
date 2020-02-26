@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 from regi.models import Registration
 # Create your views here.
 
+
+@csrf_exempt
 def registration(request):
     response_json = {}
     try:

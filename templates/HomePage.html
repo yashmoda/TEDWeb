@@ -38,21 +38,27 @@
          $("#tile3").click(function(){
            $("#Tokyo").show();
           });
+          });
 
 
       });
-      $(document).ready(function(){
-         $("#register").hover(function(){
+     /* $(document).ready(function(){
+         $("#register").mouseenter(function(){
            $(this).css("background-color","white");
           });
-          $("#register").hover(function(){
+          $("#register").mouseenter(function(){
            $(this).css("color","black");
           });
-          $("#register").hover(function(){
-           $(this).show();
+          $("#register").mouseleave(function(){
+           $(this).css("background-color","transparent");
+          });
+          $("#register").mouseleave(function(){
+           $(this).css("color","white");
           });
 
-      });
+
+      });*/
+
 
 
 
@@ -75,7 +81,7 @@
               <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="link1" href="#about">About Us</a>
+              <a class="nav-link" id="link1"  data-toggle="modal" data-target="#watchtrailer">Watch The Trailer</a>
             </li>
             <!--<li class="nav-item">-->
               <!--<a class="nav-link" href="#">Gallery</a>-->
@@ -121,7 +127,7 @@
       <div id="Tokyo" class="tabcontent">
         <p>Propelled by scintillating innovations, and driven by enlightening the youth of advancements, all around, TEDxNITRaipur strives to foster the core idea, “Ideas worth spreading”, among local communities, and bring to light, the local stars, who have been involved in the construction for a better life, for the generations to come. Held every year, since 2017, and amassing rich support, beating previous records, and inspiring people to explore beyond the conventions, TEDxNITRaipur, with its passionate team of stalwarts, endeavor to begin a new edition with a completely novel, invigorating ambience, and avant-garde themes.</p>
       </div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/WlxpBxr6ppc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
       <div class="container-fluid"  >
         <h3 style="text-align: center; padding-top: 5px;">LOCATION</h3>
         <hr style="border: 2px solid black;" id="eco">
@@ -260,6 +266,33 @@
         </div>
       </div>
 
+
+
+      <div class="modal fade" id="watchtrailer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Trailer for TED<sup>x</sup>NITRaipur 2020.<h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container text-center">
+        <iframe style="padding-top: 10px;"width="auto" height="315" src="https://www.youtube.com/embed/WlxpBxr6ppc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
       <div class="foter">
 
           <div class="row">
@@ -289,7 +322,7 @@
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12">
           <div class="foter-section map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.271576253507!2d81.603183737625!3d21.24995717107707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dde213f66723%3A0x21543965c50c43c7!2sNational%20Institute%20of%20Technology%2C%20Raipur!5e0!3m2!1sen!2sin!4v1578681614746!5m2!1sen!2sin" width="350" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.271576253507!2d81.603183737625!3d21.24995717107707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dde213f66723%3A0x21543965c50c43c7!2sNational%20Institute%20of%20Technology%2C%20Raipur!5e0!3m2!1sen!2sin!4v1578681614746!5m2!1sen!2sin" width="350" height="125px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
             </div>
         </div>
@@ -338,7 +371,7 @@
     function register()
     {
         $.ajax({
-        url: "/sponsors/sponsor_application/",
+        url: "/regi/register",
         type: "POST",
         dataType: "json",
         data: {"name": $("#personsname").val(), "phone_no": $("#mobilenumber1").val(), "email_id": $("#InputEmail1").val()},
