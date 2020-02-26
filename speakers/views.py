@@ -76,12 +76,12 @@ def speaker_application(request):
             except Exception as e:
                 print str(e)
                 response_json['success'] = False
-                response_json['message'] = "An error has occured. Please try again later."
+                response_json['message'] = "An error has occurred. Please try again later."
                 return JsonResponse(response_json)
     except Exception as e:
         print str(e)
         response_json['success'] = False
-        response_json['message'] = "An error has occured. Please try again later."
+        response_json['message'] = "An error has occurred. Please try again later."
         return JsonResponse(response_json)
 
 
@@ -117,6 +117,7 @@ def current_speakers(request):
             for current_speaker in current_speaker_list:
                 temp_json = {'name': current_speaker.name,
                              'domain': current_speaker.domain,
+                             'description': current_speaker.description,
                              'image': request.scheme + '://' + request.get_host() +
                                       '/media/' + str(current_speaker.image),
                              'id': current_speaker.id}
