@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^speaker/', include('speakers.urls', namespace="speakers")),
     url(r'^contact/', include('contact.urls', namespace='contact')),
     url(r'^sponsors/', include('sponsors.urls', namespace='sponsors')),
+    url(r'^gallery/', include('gallery.urls', namespace='gallery' )),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
