@@ -45,12 +45,18 @@ body {
 
   }
   .lead-organiser .tile .tile-img-wrap{
-    height: 75%;
+    height: 70%;
   }
 
   .title{
     padding-top: 20px;
     padding-bottom: 20px;
+  }
+
+  .lead-organiser .tile .tile-title .tile-title-text
+  {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }
 
